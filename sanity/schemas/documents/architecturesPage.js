@@ -33,9 +33,9 @@ export default {
             group: 'gridProject',
         },
         {
-            name: 'initialColumn',
+            name: 'initialColumnField',
             title: 'Initial Column',
-            type: 'Initialcolumn',
+            type: 'initialcolumn',
             group: 'gridProject',
         },
         {
