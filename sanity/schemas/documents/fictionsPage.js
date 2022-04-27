@@ -1,9 +1,9 @@
 export default {
     //
-    name: 'architecturesPage',
-    title: 'Architectures Page',
+    name: 'fictionsPage',
+    title: 'Fictions Page',
     type: 'document',
-    icon: () => `🏡`,
+    icon: () => `🎭`,
     fields: [
         {
             name: 'title',
@@ -11,8 +11,8 @@ export default {
             type: 'string',
         },
         {
-            name: 'descriptionArchitectures',
-            title: 'Description Architectures',
+            name: 'descriptionFictions',
+            title: 'Description Fictions',
             type: 'text',
         },
         {

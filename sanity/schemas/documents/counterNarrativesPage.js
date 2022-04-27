@@ -1,7 +1,7 @@
 export default {
     //
-    name: 'architecturesPage',
-    title: 'Architectures Page',
+    name: 'counterNarrativesPage',
+    title: 'Counter Narratives Page',
     type: 'document',
     icon: () => `🏡`,
     fields: [
@@ -11,8 +11,8 @@ export default {
             type: 'string',
         },
         {
-            name: 'descriptionArchitectures',
-            title: 'Description Architectures',
+            name: 'descriptionCounterNarratives',
+            title: 'Description Counter Narratives ',
             type: 'text',
         },
         {

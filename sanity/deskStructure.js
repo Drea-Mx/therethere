@@ -21,6 +21,38 @@ export default () =>
             .schemaType('homePage')
             .documentId('homePage')
         ),
+        S.listItem()
+        .title('Architectures Page')
+        .icon(() => '🌇')
+        .child(
+          S.document()
+            .schemaType('architecturesPage')
+            .documentId('architecturesPage')
+        ),
+        S.listItem()
+        .title('Counter Narratives Page')
+        .icon(() => '🌏')
+        .child(
+          S.document()
+            .schemaType('counterNarrativesPage')
+            .documentId('counterNarrativesPage')
+        ),
+        S.listItem()
+        .title('Fictions Page')
+        .icon(() => '🎭')
+        .child(
+          S.document()
+            .schemaType('fictionsPage')
+            .documentId('fictionsPage')
+        ),
+        S.listItem()
+        .title('About Page')
+        .icon(() => '📝')
+        .child(
+          S.document()
+            .schemaType('aboutPage')
+            .documentId('aboutPage')
+        ),
         S.divider(),
-        ...S.documentTypeListItems().filter(listItem => !['ageVerification', 'settingsPage', 'carrusel', 'homePage', 'aboutPage' ].includes(listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => !['settingsPage','homePage', 'architecturesPage', 'counterNarrativesPage', 'fictionsPage', 'aboutPage' ].includes(listItem.getId()))
     ])

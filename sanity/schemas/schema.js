@@ -16,10 +16,18 @@ import editorial from './objects/editorial/editorial'
 import meta from './objects/meta'
 import columns from './objects/columns'
 import initialcolumn from './objects/initialcolumn'
+import award from './objects/award'
+import newObject from './objects/new'
 
 import homePage from './documents/homePage'
 import settingsPage from './documents/settingsPage'
-import architectures from './documents/architecturesPage'
+import architecture from './documents/architecture'
+import counterNarrative from './documents/counterNarrative'
+import fiction from './documents/fiction'
+import architecturesPage from './documents/architecturesPage'
+import counterNarrativesPage from './documents/counterNarrativesPage'
+import fictionsPage from './documents/fictionsPage'
+import aboutPage from './documents/aboutPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -40,9 +48,18 @@ export default createSchema({
     meta,
     columns,
     initialcolumn,
+    award,
+    newObject,
 
     homePage,
     settingsPage,
-    architectures
+    architecture,
+    counterNarrative,
+    fiction,
+    architecturesPage,
+    counterNarrativesPage,
+    fictionsPage,
+    aboutPage
+
   ]),
 })
