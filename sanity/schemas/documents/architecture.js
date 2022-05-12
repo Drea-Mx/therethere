@@ -17,6 +17,14 @@ export default {
             type: 'string',
         },
         {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+              source: 'title',
+            },
+          },
+        {
             name: 'thumbnail',
             title: 'Thumbnail',
             type: 'imageType',
