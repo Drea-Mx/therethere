@@ -18,6 +18,21 @@ export default {
             type: 'string',
         },
         {
+            name: 'headerTitle1',
+            title: 'Header Title 1',
+            type: 'string',
+        },
+        {
+            name: 'headerTitle2',
+            title: 'Header Title 2',
+            type: 'string',
+        },
+        {
+            name: 'logos',
+            title: 'Logos',
+            type: 'imageType'
+        },
+        {
             name: 'logoSansSerif',
             title: 'Logo Sans Serif',
             type: 'imageType'

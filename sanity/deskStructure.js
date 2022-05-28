@@ -14,20 +14,12 @@ export default () =>
               .documentId('settingsPage')
         ),
         S.listItem()
-        .title('Home')
+        .title('Architectures Page')
         .icon(() => '🏡')
         .child(
           S.document()
             .schemaType('homePage')
             .documentId('homePage')
-        ),
-        S.listItem()
-        .title('Architectures Page')
-        .icon(() => '🌇')
-        .child(
-          S.document()
-            .schemaType('architecturesPage')
-            .documentId('architecturesPage')
         ),
         S.listItem()
         .title('Counter Narratives Page')
@@ -54,5 +46,5 @@ export default () =>
             .documentId('aboutPage')
         ),
         S.divider(),
-        ...S.documentTypeListItems().filter(listItem => !['settingsPage','homePage', 'architecturesPage', 'counterNarrativesPage', 'fictionsPage', 'aboutPage' ].includes(listItem.getId()))
+        ...S.documentTypeListItems().filter(listItem => !['settingsPage','homePage', 'counterNarrativesPage', 'fictionsPage', 'aboutPage' ].includes(listItem.getId()))
     ])

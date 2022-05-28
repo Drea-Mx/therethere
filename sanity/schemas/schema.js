@@ -24,7 +24,7 @@ import settingsPage from './documents/settingsPage'
 import architecture from './documents/architecture'
 import counterNarrative from './documents/counterNarrative'
 import fiction from './documents/fiction'
-import architecturesPage from './documents/architecturesPage'
+// import architecturesPage from './documents/architecturesPage'
 import counterNarrativesPage from './documents/counterNarrativesPage'
 import fictionsPage from './documents/fictionsPage'
 import aboutPage from './documents/aboutPage'
@@ -56,7 +56,7 @@ export default createSchema({
     architecture,
     counterNarrative,
     fiction,
-    architecturesPage,
+    // architecturesPage,
     counterNarrativesPage,
     fictionsPage,
     aboutPage

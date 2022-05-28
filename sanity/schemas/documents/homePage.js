@@ -11,9 +11,14 @@ export default {
             type: 'string',
         },
         {
+            name: 'subTitle',
+            title: ' Page Subtitle',
+            type: 'string',
+        },
+        {
             name: 'descriptionHome',
-            title: 'Description Home',
-            type: 'text',
+            title: 'Description Window Home',
+            type: 'blockModule',
         },
         {
             name: 'seo',
