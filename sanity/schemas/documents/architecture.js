@@ -4,12 +4,6 @@ export default {
     title: 'Architectures',
     type: 'document',
     icon: () => `🌇`,
-    groups: [
-        {
-          name: 'gridProject',
-          title: 'Grid',
-        },
-      ],
     fields: [
         {
             name: 'title',
@@ -30,32 +24,14 @@ export default {
             type: 'imageType',
         },
         {
+            name: 'thumbnailMetadescription',
+            title: 'Thumbnail Metadescription',
+            type: 'string',
+        },
+        {
             name: 'projectDescription',
             title: 'Project Description',
             type: 'blockModule',
-        },
-        {
-            name: 'columnsGrid',
-            title: 'Columns',
-            type: 'columns',
-            group: 'gridProject',
-        },
-        {
-            name: 'initialColumnField',
-            title: 'Initial Column',
-            type: 'initialcolumn',
-            group: 'gridProject',
-        },
-        {
-            name: 'gridMarginTop',
-            title: 'Grid Margin Top',
-            type: 'boolean',
-            group: 'gridProject',
-        },
-        {
-            name: 'meta',
-            title: 'Meta',
-            type: 'meta'
         },
         {
             name: 'info',
@@ -78,4 +54,11 @@ export default {
             type: 'seo'
         }
     ],
+    preview: {
+        select: {
+          title: 'title',
+          subtitle: 'projectDescription',
+          media: 'thumbnail'
+        }
+      }
 }

@@ -8,25 +8,21 @@ export default {
       },
     fields: [
         {
-            name: 'locationLabel',
-            title: 'Location Label',
+            name: 'label',
+            title: 'Label',
             type: 'string'
         },
         {
-            name: 'locationValue',
-            title: 'Location Value',
-            type: 'string'
-        },
-        {
-            name: 'yearLabel',
-            title: 'Year Label',
-            type: 'string'
-        },
-        {
-            name: 'yearValue',
-            title: 'Year Value',
+            name: 'value',
+            title: 'Value',
             type: 'string'
         },
 
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'label',
+          subtitle: 'value',
+        }
+      }
 }
