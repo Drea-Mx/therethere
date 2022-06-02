@@ -12,7 +12,7 @@ const Architectures = ({data}) => {
                             const bgGetDataImageAlt = thumbnail.alt
                     return (
                         <div className='project' key={_id}>
-                            <Link to={`/architectures/${slug.current}`}>
+                            <Link to={`/${slug.current}`}>
                                 <div className='image'>
                                     <GatsbyImage
                                         image={bgGetDataImage}

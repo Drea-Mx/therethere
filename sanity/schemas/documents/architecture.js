@@ -49,6 +49,29 @@ export default {
             type: 'editorial',
         },
         {
+            name: 'sliderImages',
+            title: 'Slider Images Movil',
+            type: 'array',
+            options: {
+                layout: 'grid',
+              },
+            of: [
+                {
+                    type: 'imageType'
+                }
+            ]
+        },
+        {
+            name: 'locationMovil',
+            title: 'Location Movil',
+            type: 'string'
+        },
+        {
+            name: 'yearMovil',
+            title: 'Year Movil',
+            type: 'string'
+        },
+        {
             name: 'seo',
             title: 'SEO',
             type: 'seo'
