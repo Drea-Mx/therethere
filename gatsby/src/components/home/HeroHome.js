@@ -42,6 +42,9 @@ const ProjectsHomeCoontainer = styled.section`
 padding: 50px;
 position: relative;
 z-index: 1;
+@media (max-width: 850px) {
+    padding: 50px;
+}
     .container {
         position: relative;
         width: 100%;
@@ -52,11 +55,17 @@ z-index: 1;
             position: fixed;
             top: 20px;
             left: 50px;
+            @media (max-width: 850px) {
+                display: none;
+            }
         }
         .floatR {
             position: fixed;
             top: 20px;
             right: 50px;
+            @media (max-width: 850px) {
+                display: none;
+            }
         }
         .logos {
             position: fixed;
@@ -67,6 +76,12 @@ z-index: 1;
             max-width: 750px;
             width: 750px;
             z-index: 4;
+            @media (max-width: 850px) {
+                position: static;
+                width: 266px;
+                margin: 0 auto;
+                transform: none;
+            }
             .logo {
                 width: 100%;
             }
@@ -76,13 +91,27 @@ z-index: 1;
             position: fixed;
             top: 250px;
             left: 50px;
+            @media (max-width: 850px) {
+                position: static;
+                margin-top: 50px;
+                flex-direction: column;
+            }
             h1 {
                 text-transform: uppercase;
                 font-weight: normal;
+                @media (max-width: 850px) {
+                    font-size: 2rem;
+                }
             }
             p {
-                margin-left: 20px;
+                margin-left: 50px;
                 align-self: center;
+                @media (max-width: 850px) {
+                    margin-left: 0;
+                    align-self: flex-start;
+                    margin-top: 10px;
+                    width: 70%;
+                }
             }
         }
         .top {
@@ -90,6 +119,9 @@ z-index: 1;
             margin: 0 auto;
             width: 150px;
             height: 50px;
+            @media (max-width: 850px) {
+                margin-bottom: 100px;
+            }
             .overlay {
                 text-align: center;
                 margin: 0 auto;

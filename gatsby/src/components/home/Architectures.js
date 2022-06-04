@@ -12,7 +12,7 @@ const Architectures = ({data}) => {
                             const bgGetDataImageAlt = thumbnail.alt
                     return (
                         <div className='project' key={_id}>
-                            <Link to={`/architectures/${slug.current}`}>
+                            <Link to={`/${slug.current}`}>
                                 <div className='image'>
                                     <GatsbyImage
                                         image={bgGetDataImage}
@@ -38,11 +38,20 @@ const Architectures = ({data}) => {
 const ArchitecturesContainer = styled.section`
     margin-top: 320px;
     position: relative;
+    @media (max-width: 850px) {
+        margin-top: 50px;
+    }
+    @media (max-width: 680px) {
+        display: none;
+    }
     .container {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
-        .project {
+        margin-bottom: 200px;
+        @media (max-width: 950px) {
             margin-bottom: 100px;
+        }
+        .project {
             width: 100%;
             position: relative;
             .image {
@@ -115,21 +124,26 @@ const ArchitecturesContainer = styled.section`
                 margin-top: -50px;
                 grid-column: 3/span 3;
                 grid-row: auto;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(191, 170, 145, .5), rgba(244, 8, 244, .5));
                 }
                 @media (max-width: 950px) {
                     grid-column: 2/span 4;
+                    margin-top: 0px;
+                    margin-bottom: 100px;
                 }
             }
             &:nth-child(10n - 6) {
                 grid-column: 2/span 8;
                 grid-row: auto;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(51, 51, 255, .5), rgba(244, 8, 244, .5));
                 }
                 @media (max-width: 950px) {
                     grid-column: 1/span 10;
+                    margin-bottom: 100px;
                 }
             }
             &:nth-child(10n - 5) {
@@ -145,30 +159,38 @@ const ArchitecturesContainer = styled.section`
             &:nth-child(10n - 4) {
                 grid-column: 7/span 4;
                 grid-row: auto;
-                margin-top: 100px;
+                margin-top: 200px;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(51, 51, 255, .5), rgba(244, 8, 244, .5));
+                }
+                @media (max-width: 950px) {
+                    margin-bottom: 100px;
                 }
             }
             &:nth-child(10n - 3) {
                 grid-column: 4/span 4;
                 grid-row: auto;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(191, 170, 145, .5), rgba(244, 8, 244, .5));
                 }
                 @media (max-width: 950px) {
                     grid-column: 3/span 6;
+                    margin-bottom: 100px;
                 }
             }
             &:nth-child(10n - 2) {
                 grid-column: 2/span 4;
                 grid-row: auto;
-                margin-top: 150px;
+                margin-top: 200px;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(191, 170, 145, .5), rgba(244, 8, 244, .5));
                 }
                 @media (max-width: 950px) {
                     grid-column: 1/span 4;
+                    margin-bottom: 100px;
                 }
             }
             &:nth-child(10n - 1) {
@@ -184,11 +206,13 @@ const ArchitecturesContainer = styled.section`
             &:nth-child(10n) {
                 grid-column: 2/span 8;
                 grid-row: auto;
+                margin-bottom: 200px;
                 .overlay {
                     background-image: linear-gradient(rgba(51, 51, 255, .5), rgba(244, 8, 244, .5));
                 }
                 @media (max-width: 950px) {
                     grid-column: 1/span 10;
+                    margin-bottom: 100px;
                 }
             }
         }

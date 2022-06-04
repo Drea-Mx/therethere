@@ -12,7 +12,7 @@ const Blur = ({data}) => {
     const bgGetDataImageAlt2 = data.sanitySettingsPage.logoSerif.alt
 
 
-    const [clickLogo, setClickLogo] = useState(false);
+    const [clickLogo, setClickLogo] = useState(1);
 
     const [clickArrow, setClickArrow] = useState(false);
 
@@ -26,25 +26,25 @@ const Blur = ({data}) => {
                         blocks={data.sanityHomePage._rawDescriptionHome}
                     />
                 </div>
-                <div className={clickLogo ? 'active logos1 element' : 'logos1 element'}>
-                    <div className='image1 image'
-                        onClick={() => setClickLogo(!clickLogo)}
+                <div className={clickLogo === 1 ? 'logos1 element' : 'active logos1 element'}>
+                    <button className='image1 image'
+                        onClick={() => setClickLogo(clickLogo + 1)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
                             image={bgGetDataImage1}
                             alt={bgGetDataImageAlt1}
                         />
-                    </div>
-                    <div className='image2 image'
-                        onClick={() => setClickLogo(!clickLogo)}
+                    </button>
+                    <button className='image2 image'
+                        onClick={() => setClickLogo(clickLogo + 1)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
                             image={bgGetDataImage2}
                             alt={bgGetDataImageAlt2}
                         />
-                    </div>
+                    </button>
                     <button className="arrow"
                         onClick={() => setClickArrow(!clickArrow)}
                     >
@@ -59,13 +59,15 @@ const Blur = ({data}) => {
 const BlurContainer = styled.section`
 .top {
     top: -100% !important;
+    opacity: 0 !important;
 }
 .container {
     height: 100vh;
     width: 100vw;
     position: fixed;
     top: 0;
-    transition: top 1s ease-in-out;
+    opacity: 1;
+    transition: opacity 1s ease-in-out, top 1s ease-in-out 1s;
     z-index: 3;
     .text {
         position: absolute;

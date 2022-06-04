@@ -75,7 +75,7 @@ export const data = graphql`
 const IndexPage = ({data}) => {
     return(
         <Layout>
-            <Seo title='Inicio' description='descripción' image='../assets/images/screenshot.png' />
+            <Seo title='ARCHITECTURES' description='descripción' image='../assets/images/screenshot.png' />
             <Blur data={data} />
             <HeroHome data={data} />
         </Layout>
