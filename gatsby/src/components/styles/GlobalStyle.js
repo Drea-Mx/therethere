@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
     :root {
       --pink: #F408F4;
       --white: #F9F9F9;
-      overflow-wrap: break-word;
     }
     * {
         box-sizing: border-box;

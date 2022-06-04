@@ -53,6 +53,8 @@ export const data = graphql`
             slug {
                 current
             }
+            yearMovil
+            locationMovil
             thumbnailMetadescription
             thumbnail {
                 alt
@@ -62,6 +64,17 @@ export const data = graphql`
                     outputPixelDensities: 1.5
                     placeholder: DOMINANT_COLOR
                 )
+                }
+            }
+            sliderImages {
+                _key
+                alt
+                asset {
+                    gatsbyImageData(
+                        layout: FULL_WIDTH
+                        outputPixelDensities: 1.5
+                        placeholder: DOMINANT_COLOR
+                    )
                 }
             }
         }

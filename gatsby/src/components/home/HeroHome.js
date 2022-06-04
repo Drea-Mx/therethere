@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Architectures from './Architectures'
+import ArchitecturesMovil from './ArchitecturesMovil'
 
 const HeroHome = ({data}) => {
 
@@ -29,6 +30,7 @@ const HeroHome = ({data}) => {
                     <p>{data.sanityHomePage.subTitle}</p>
                 </div>
                 <Projects data={data} />
+                <ProjectsMovil data={data} />
                 <div className='top'>
                     <div className='overlay'></div>
                     <a href='#top'>Back to top</a>
@@ -43,7 +45,7 @@ padding: 50px;
 position: relative;
 z-index: 1;
 @media (max-width: 850px) {
-    padding: 50px;
+    padding: 0;
 }
     .container {
         position: relative;
@@ -81,6 +83,7 @@ z-index: 1;
                 width: 266px;
                 margin: 0 auto;
                 transform: none;
+                padding-top: 50px;
             }
             .logo {
                 width: 100%;
@@ -95,6 +98,7 @@ z-index: 1;
                 position: static;
                 margin-top: 50px;
                 flex-direction: column;
+                padding-left: 20px;
             }
             h1 {
                 text-transform: uppercase;
@@ -121,6 +125,9 @@ z-index: 1;
             height: 50px;
             @media (max-width: 850px) {
                 margin-bottom: 100px;
+            }
+            @media (max-width: 650px) {
+                display: none;
             }
             .overlay {
                 text-align: center;
@@ -152,6 +159,11 @@ z-index: 1;
 const Projects = styled(Architectures)`
     position: relative;
     z-index: 3;
+`
+
+const ProjectsMovil = styled(ArchitecturesMovil)`
+    position: relative;
+    z-index: 1;
 `
 
 export default HeroHome

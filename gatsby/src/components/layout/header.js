@@ -109,6 +109,7 @@ z-index: 2;
             justify-content: space-between;
             align-items: center;
             box-shadow: 1px -6px 43px 10px var(--pink);
+            z-index: 2;
             button {
                 color: white;
                 margin-right: 50px;
@@ -128,11 +129,11 @@ z-index: 2;
             height: 100vh;
             background-color: var(--pink);
             background-image: linear-gradient(#F408F4, #ffffff);
-            z-index: 2;
+            z-index: 3;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 50px;
+            padding: 50px 20px;
             .logo {
                 filter: brightness(0) invert(1);
                 width: 266px;
@@ -144,7 +145,7 @@ z-index: 2;
                     margin-top: 25px;
                     &:nth-child(2) {
                         text-align: right;
-                        width: 60%;
+                        width: 250px;
                         margin-right: 0;
                         margin-left: auto;
                     }
