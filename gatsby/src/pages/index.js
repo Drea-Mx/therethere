@@ -45,6 +45,15 @@ export const data = graphql`
         _rawDescriptionHome
         title
         subTitle
+        seo {
+            title
+            description
+            image {
+                asset {
+                url
+                }
+            }
+        }
     }
     allSanityArchitecture {
         nodes {
@@ -88,7 +97,7 @@ export const data = graphql`
 const IndexPage = ({data}) => {
     return(
         <Layout>
-            <Seo title='ARCHITECTURES' description='descripción' image='../assets/images/screenshot.png' />
+            <Seo title={data.sanityHomePage.seo.title} description={data.sanityHomePage.seo.description} image={data.sanityHomePage.seo.image.asset.url} />
             <Blur data={data} />
             <HeroHome data={data} />
         </Layout>

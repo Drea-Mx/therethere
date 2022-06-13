@@ -121,7 +121,7 @@ const ArchitecturesContainer = styled.section`
                 }
             }
             &:nth-child(10n - 7) {
-                margin-top: -50px;
+                margin-top: 150px;
                 grid-column: 3/span 3;
                 grid-row: auto;
                 margin-bottom: 200px;
