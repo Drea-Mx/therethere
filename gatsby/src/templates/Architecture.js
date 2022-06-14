@@ -4,6 +4,7 @@ import Layout from "../components/layout/layout";
 import Seo from "../components/layout/seo";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import ArchitectureModules from "../components/architectures/modules/ArchitecturesModules";
 
 export const query = graphql`
   query ($slug: String!) {
@@ -25,6 +26,81 @@ export const query = graphql`
         title
         locationMovil
         yearMovil
+        editorialModule {
+            ... on SanityOneColumn {
+                _key
+                _type
+                fullWidth
+                image {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+            }
+            ... on SanityTwoColumn {
+                _key
+                _type
+                image1 {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+                image2 {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+            }
+            ... on SanityThreeColumn {
+                _key
+                _type
+                image1 {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+                image2 {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+                image3 {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: DOMINANT_COLOR
+                    )
+                }
+                }
+            }
+        }
         seo {
             title
             description
@@ -45,11 +121,24 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
 
 
     return(
-        <Layout>
+        <Layout id='top'>
         <Seo
           title={architecture.seo.title} image={architecture.seo.image.asset.url} description={architecture.seo.description}
         />
-        <ArchitecturesContainer id='top'>
+        <ArchitecturesContainer >
+            <div className="window">
+                <div className="cont">
+                    <div className="top">
+                        <h2>{architecture.title}</h2>
+                    </div>
+                    <div className="bot">
+                        <p>ABOUT</p>
+                        <div className="texto">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="container">
             <h2 className='floatL'>{header.headerTitle1}</h2>
             <h2 className='floatR'>{header.headerTitle2}</h2>
@@ -80,6 +169,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
                     </div>
                 </div>
             </div>
+            <ArchitectureModules architectureModule={architecture.editorialModule} />
             <div className='top'>
                 <div className='overlay'></div>
                 <a href='#top'>Back to top</a>
@@ -92,6 +182,18 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
 }
 
 const ArchitecturesContainer = styled.div`
+.window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(244,8,244,0.5);
+    backdrop-filter: blur(7px);
+    z-index: 5;
+}
 .container {
         position: relative;
         width: 100%;
@@ -185,6 +287,7 @@ const ArchitecturesContainer = styled.div`
             margin: 0 auto;
             width: 150px;
             height: 50px;
+            margin-bottom: 150px;
             @media (max-width: 850px) {
                 margin-bottom: 100px;
             }
@@ -211,6 +314,7 @@ const ArchitecturesContainer = styled.div`
                 transform: translate(-50%, -50%);
                 text-align: center;
                 width: 180px;
+                color: white;
             }
         }
     }
