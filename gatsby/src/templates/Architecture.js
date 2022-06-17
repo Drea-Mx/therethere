@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import Seo from "../components/layout/seo";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ArchitectureModules from "../components/architectures/modules/ArchitecturesModules";
+import BlockContent from '@sanity/block-content-to-react';
+
 
 export const query = graphql`
   query ($slug: String!) {
@@ -26,6 +28,12 @@ export const query = graphql`
         title
         locationMovil
         yearMovil
+        _rawProjectDescription
+        info {
+            _key
+            label
+            value
+        }
         editorialModule {
             ... on SanityOneColumn {
                 _key
@@ -120,22 +128,40 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
     const bgGetDataImageAlt = header.logos.alt
 
 
+    const [info, setInfo] = useState(false);
+
+
     return(
         <Layout id='top'>
         <Seo
           title={architecture.seo.title} image={architecture.seo.image.asset.url} description={architecture.seo.description}
         />
         <ArchitecturesContainer >
-            <div className="window">
+            <div className={info ? 'window open' : 'window'}>
+                <button className="closeButton" onClick={() => setInfo(!info)}>
+                    <img className="close" src='/Close.svg' alt='Close button' />
+                </button>
                 <div className="cont">
                     <div className="top">
                         <h2>{architecture.title}</h2>
                     </div>
-                    <div className="bot">
+                    <div className="about">
                         <p>ABOUT</p>
-                        <div className="texto">
-
-                        </div>
+                    </div>
+                    <div className="texto">
+                        <BlockContent
+                            blocks={architecture._rawProjectDescription}
+                        />
+                    </div>
+                    <div className="information">
+                        {architecture.info.map(({ _key, label, value }) => {
+                            return (
+                                <div className="inf" key={_key}>
+                                    <p className="label">{label}</p>
+                                    <p className="value">{value}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
@@ -153,7 +179,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
             </div>
             <div className='title'>
                 <div className="left">
-                    <button>+ INFO</button>
+                    <button onClick={() => setInfo(!info)}>+ INFO</button>
                 </div>
                 <div className="center">
                     <h1>{architecture.title}</h1>
@@ -182,17 +208,68 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
 }
 
 const ArchitecturesContainer = styled.div`
+.open {
+    top: 0 !important;
+}
 .window {
     position: fixed;
-    top: 0;
+    top: 100%;
     left: 0;
     bottom: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(244,8,244,0.5);
-    backdrop-filter: blur(7px);
+    background: rgba(244,8,244,0.8);
+    backdrop-filter: blur(5px);
     z-index: 5;
+    transition: top 350ms ease-in-out;
+    .closeButton {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        img {
+            width: 25px;
+        }
+    }
+    .cont {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        padding: 50px;
+        color: white;
+        align-items: baseline;
+        .top {
+            grid-column: 1/7;
+            grid-row: 1/2;
+            margin-top: 50px;
+            margin-bottom: 50PX;
+            h2 {
+                font-size: 5vw;
+                color: white;
+                text-transform: uppercase;
+                line-height: 0.9;
+            }
+        }
+        .about {
+            grid-row: 2/3;
+            grid-column: 1/2;
+        }
+        .texto {
+            grid-column: 2/6;
+            grid-row: 2/3;
+            height: 50vh;
+            overflow-y: scroll;
+            p {
+                margin: 10px auto;
+            }
+        }
+        .information {
+            grid-row: 2/3;
+            grid-column: 7/11;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+        }
+    }
 }
 .container {
         position: relative;
