@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout/layout";
 import Seo from "../components/layout/seo";
 import styled from "styled-components";
@@ -203,9 +203,118 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
         </div>
 
         </ArchitecturesContainer>
+
+        <ArchitecturesContainerMovil>
+            <div className="container">
+                <h1>{architecture.title}</h1>
+                <div className="about">
+                    <h2>About</h2>
+                    <div className="texto">
+                        <BlockContent
+                            blocks={architecture._rawProjectDescription}
+                        />
+                    </div>
+                    <div className="op"></div>
+                </div>
+                <div className="information">
+                    {architecture.info.map(({ _key, label, value }) => {
+                        return (
+                            <div className="inf" key={_key}>
+                                <p className="label">{label}</p>
+                                <p className="value">{value}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="ops"></div>
+                <Link to="/" className="closeButton">
+                    <img className="close" src='/Close.svg' alt='Close button' />
+                </Link>
+            </div>
+        </ArchitecturesContainerMovil>
       </Layout>
     )
 }
+
+
+const ArchitecturesContainerMovil = styled.section`
+    display: none;
+    background-color: rgba(246, 116, 246, 1);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 2;
+    padding: 20px;
+    overflow-y: scroll;
+    .container {
+        color: white;
+        position: relative;
+        h1 {
+            font-size: 40px;
+        }
+        .about {
+            margin-top: 50px;
+            position: relative;
+            .op {
+                    position: absolute;
+                    height: 50px;
+                    width: 100%;
+                    background: linear-gradient(rgba(246, 116, 246, 0), rgba(246, 116, 246, 1));
+                    bottom: 0;
+                }
+            .texto {
+                height: 300px;
+                overflow-y: scroll;
+                position: relative;
+                padding-bottom: 50px;
+                p {
+                    margin: 10px auto;
+                }
+                
+            }
+            h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+        .information {
+            padding-top: 50px;
+            .inf {
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+        .ops {
+            position: fixed;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background: linear-gradient(rgba(246, 116, 246, 0), rgba(246, 116, 246, 1));
+        }
+        .closeButton {
+            img {
+                width: 30px;
+                position: fixed;
+                bottom: 30px;
+                right: 20px;
+            }
+        }
+    }
+    @media (max-width: 680px) {
+        display: block;
+    }
+`
+
+
+
 
 const ArchitecturesContainer = styled.div`
 .open {
@@ -395,7 +504,12 @@ const ArchitecturesContainer = styled.div`
             }
         }
     }
+
+    @media (max-width: 680px) {
+        display: none;
+    }
 `
+
 
 
 export default SingleArchitectureProject;
