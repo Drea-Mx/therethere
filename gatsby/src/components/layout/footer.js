@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 
-const Footer = () => {
+const Footer = ({pink}) => {
 
     const data = useStaticQuery(graphql`
     query {
@@ -16,7 +16,20 @@ const Footer = () => {
     }
     `);
 
-
+const FooterContainer = styled.footer`
+padding: 0 50px 200px;
+display: flex;
+width: 100%;
+justify-content: space-between;
+background-color: ${pink === true ? 'var(--pink)' : 'white'};
+color: ${pink === true ? 'white' : 'var(--pink)'};
+@media (max-width: 850px) {
+    padding: 50px 20px 150px;
+    p {
+        width: 120px;
+    }
+}
+`
     return(
         <FooterContainer>
             <p>{data.sanitySettingsPage.title}</p>
@@ -25,17 +38,6 @@ const Footer = () => {
     )
 }
 
-const FooterContainer = styled.nav`
-padding: 0 50px 200px;
-display: flex;
-width: 100%;
-justify-content: space-between;
-@media (max-width: 850px) {
-    padding: 50px 20px 150px;
-    p {
-        width: 120px;
-    }
-}
-`
+
 
 export default Footer

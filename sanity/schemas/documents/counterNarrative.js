@@ -4,12 +4,6 @@ export default {
     title: 'Counter Narratives',
     type: 'document',
     icon: () => `🌏`,
-    groups: [
-        {
-          name: 'gridProject',
-          title: 'Grid',
-        },
-      ],
     fields: [
         {
             name: 'title',
@@ -35,16 +29,9 @@ export default {
             type: 'blockModule',
         },
         {
-            name: 'columnsGrid',
-            title: 'Columns',
-            type: 'columns',
-            group: 'gridProject',
-        },
-        {
-            name: 'initialColumnField',
-            title: 'Initial Column',
-            type: 'initialcolumn',
-            group: 'gridProject',
+            name: 'metaInfo',
+            title: 'Meta Info',
+            type: 'string'
         },
         {
             name: 'video',
@@ -57,4 +44,11 @@ export default {
             type: 'seo'
         }
     ],
+    preview: {
+        select: {
+          title: 'title',
+          subtitle: 'projectDescription',
+          media: 'thumbnail'
+        }
+      }
 }
