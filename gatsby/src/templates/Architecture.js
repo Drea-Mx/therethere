@@ -328,8 +328,9 @@ const ArchitecturesContainer = styled.div`
     right: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(244,8,244,0.8);
-    backdrop-filter: blur(5px);
+    background: rgba(244, 8, 244, 0.55);
+    backdrop-filter: blur(20px);
+/* Note: backdrop-filter has minimal browser support */
     z-index: 5;
     transition: top 350ms ease-in-out;
     .closeButton {

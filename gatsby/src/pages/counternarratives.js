@@ -63,6 +63,7 @@ export const data = graphql`
                 current
             }
             metaInfo
+            video
             thumbnail {
                 alt
                 asset {
