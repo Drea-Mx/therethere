@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState, useCallback } from "react";
 import Blur from '../components/home/Blur';
 import { graphql } from "gatsby";
 import Layout from '../components/layout/layout'
@@ -55,7 +55,7 @@ export const data = graphql`
             }
         }
     }
-    allSanityArchitecture {
+    allSanityArchitecture(sort: {order: ASC, fields: orderRank})  {
         nodes {
             _id
             title
@@ -95,10 +95,34 @@ export const data = graphql`
 
 
 const IndexPage = ({data}) => {
+
+
+    const session = "test";
+    const [showModal, setShowModal] = useState(false);
+
+    const hideModal = useCallback(() => {
+            console.log("hideModal");
+            const modalKey = "modalSession";
+            localStorage.setItem(modalKey, session);
+            setShowModal(false);
+          }, [setShowModal])
+    
+    
+
+    useEffect(() => {
+      const modalKey = "modalSession";
+      const modalSession = localStorage.getItem(modalKey);
+      setShowModal(modalSession !== session);
+    },[showModal, hideModal]);
+
+
+
     return(
         <Layout>
             <Seo title={data.sanityHomePage.seo.title} description={data.sanityHomePage.seo.description} image={data.sanityHomePage.seo.image.asset.url} />
-            <Blur data={data} />
+            {showModal ? 
+                <Blur data={data} />
+            : ""}
             <HeroHome data={data} />
         </Layout>
     )

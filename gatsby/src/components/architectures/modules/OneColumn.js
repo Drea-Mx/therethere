@@ -11,6 +11,7 @@ const OneColumn = ({data}) => {
 
 
     const OneColumnContainer = styled.section`
+        margin: 100px 0;
     .oneColumn {
         width: 80%;
         margin: 0 auto;
