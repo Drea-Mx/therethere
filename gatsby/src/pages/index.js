@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import Blur from '../components/home/Blur';
 import { graphql } from "gatsby";
 import Layout from '../components/layout/layout'
@@ -99,21 +99,20 @@ const IndexPage = ({data}) => {
 
     const session = "test";
     const [showModal, setShowModal] = useState(false);
-
-    const hideModal = useCallback(() => {
-            console.log("hideModal");
-            const modalKey = "modalSession";
-            localStorage.setItem(modalKey, session);
-            setShowModal(false);
-          }, [setShowModal])
     
-    
+    const hideModal = () => {
+      console.log("hideModal");
+      const modalKey = "modalSession";
+      localStorage.setItem(modalKey, session);
+      setShowModal(false);
+    };
 
     useEffect(() => {
       const modalKey = "modalSession";
       const modalSession = localStorage.getItem(modalKey);
       setShowModal(modalSession !== session);
     },[showModal, hideModal]);
+
 
 
 
