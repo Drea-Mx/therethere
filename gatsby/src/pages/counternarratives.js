@@ -56,22 +56,27 @@ export const data = graphql`
         }
     }
     allSanityCounterNarrative {
-        nodes {
-            _id
-            title
-            slug {
-                current
-            }
-            metaInfo
-            video
-            thumbnail {
-                alt
-                asset {
-                    gatsbyImageData(
-                        layout: FULL_WIDTH
-                        outputPixelDensities: 1.5
-                        placeholder: DOMINANT_COLOR
-                    )
+        edges {
+            node {
+                _id
+                title
+                slug {
+                    current
+                }
+                theTeam
+                city
+                year
+                _rawProjectDescription
+                vimeoId
+                thumbnail {
+                    alt
+                    asset {
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            outputPixelDensities: 1.5
+                            placeholder: DOMINANT_COLOR
+                        )
+                    }
                 }
             }
         }

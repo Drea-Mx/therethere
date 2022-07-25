@@ -38,11 +38,44 @@ async function turnArchitecturesIntoPages({graphql, actions}) {
 }
 
 
+
+async function turnCounterIntoPages({graphql, actions}) {
+  // 1. Get a template for this page
+  const counterTemplate = path.resolve('./src/templates/Counter.js')
+  // 2. Query all artists
+  const {data} = await graphql(`
+      query {
+          counters: allSanityCounterNarrative {
+            nodes {
+              title
+              slug {
+                current
+              }
+            }
+          }
+      }
+  `);
+  // 3. Loop over each artist and create a page for each artist
+  data.counters.nodes.forEach((counter) => {
+      actions.createPage({
+          // url forths new page
+          path: `/counternarratives/${counter.slug.current}`,
+          component: counterTemplate,
+          context: {
+              language: 'en',
+              slug: counter.slug.current,
+          }
+      })
+  });
+}
+
+
 exports.createPages = async (params) => {
 // Create Pages dynamically
     await Promise.all([
         // 1. Architectures
         turnArchitecturesIntoPages(params),
+        turnCounterIntoPages(params),
 
     ])
 }

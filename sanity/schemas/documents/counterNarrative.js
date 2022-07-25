@@ -29,14 +29,24 @@ export default {
             type: 'blockModule',
         },
         {
-            name: 'metaInfo',
-            title: 'Meta Info',
+            name: 'theTeam',
+            title: 'The Team',
             type: 'string'
         },
         {
-            name: 'video',
-            title: 'Video Code',
-            type: 'text'
+            name: 'city',
+            title: 'City',
+            type: 'string'
+        },
+        {
+            name: 'year',
+            title: 'Year',
+            type: 'string'
+        },
+        {
+            name: 'vimeoId',
+            title: 'Vimeo ID',
+            type: 'string'
         },
         {
             name: 'seo',

@@ -50,6 +50,7 @@ color: white;
 @media (max-width: 850px) {
     padding: 0;
 }
+
     .container {
         position: relative;
         width: 100%;

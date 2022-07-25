@@ -1,8 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
+body::-webkit-scrollbar {
+            display: none;
+        }
     html {
       scroll-behavior: smooth;
+      -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
     
     :root {
@@ -13,6 +18,8 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0; 
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
     body {
         background-color: var(--white);
@@ -24,6 +31,8 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         position: relative;
         -webkit-font-smoothing: antialiased;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
         @media (max-width: 680px) {
           font-size: 12px;
       }

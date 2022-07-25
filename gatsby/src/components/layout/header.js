@@ -51,10 +51,10 @@ const [menu, setMenu] = useState(false);
                                 />
                         </div>
                         <ul className="links">
-                            <li><Link to='/' activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
-                            <li><Link to='/counternarratives' activeStyle={{color: "#000000" }}>COUNTER NARRATIVES</Link></li>
-                            <li><Link to='/fictions' activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
-                            <li><Link to='/about' activeStyle={{color: "#000000" }}>ABOUT</Link></li>
+                            <li><Link to='/' partiallyActive={true} activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
+                            <li><Link to='/counternarratives' partiallyActive={true} activeStyle={{color: "#000000" }}>COUNTER NARRATIVES</Link></li>
+                            <li><Link to='/fictions' partiallyActive={true} activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
+                            <li><Link to='/about' partiallyActive={true} activeStyle={{color: "#000000" }}>ABOUT</Link></li>
                         </ul>
                         <div className="footer">
                             <p>{data.sanitySettingsPage.title}</p>
@@ -96,6 +96,7 @@ z-index: 2;
     position: static;
     height: 0;
 }
+
     .mov {
         .menu {
             position: fixed;
@@ -110,6 +111,9 @@ z-index: 2;
             align-items: center;
             box-shadow: 1px -6px 43px 10px var(--pink);
             z-index: 2;
+            @media (max-width: 680px) {
+                z-index: 2;
+            }
             button {
                 color: white;
                 margin-right: 50px;

@@ -6,10 +6,10 @@ const CountProj = ({data}) => {
     return(
         <CountProjContainer>
             <div className='container'>
-            {data.allSanityCounterNarrative.nodes.map(({ _id, thumbnail, title, metaInfo, video }) => {
+            {data.allSanityCounterNarrative.edges.map(({ node }) => {
         
                     return (
-                        <SingleCountProj  key={_id} title={title} metaInfo={metaInfo} thumbnail={thumbnail} video={video} />
+                        <SingleCountProj node={node} />
                     );
                 })}
             </div>
@@ -21,12 +21,20 @@ const CountProj = ({data}) => {
 const CountProjContainer = styled.section`
     margin-top: 320px;
     position: relative;
+    @media (max-width: 850px) {
+            margin-top: 50px;
+        }
     .container {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-column-gap: 20px;
         grid-row-gap: 100px;
         margin-bottom: 100px;
+        @media (max-width: 850px) {
+            display: block;
+            margin-bottom: 0;
+            padding-bottom: 50px;
+        }
         .project  {
             width: 100%;
             display: flex;
