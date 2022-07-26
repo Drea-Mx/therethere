@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from "gatsby";
 import Layout from '../components/layout/layout'
 import Seo from '../components/layout/seo'
-import HeroCounternarratives from '../components/counternarratives/HeroCounternarratives';
+import HeroFictions from '../components/fictions/HeroFictions';
 
 
 
@@ -42,20 +42,20 @@ export const data = graphql`
         }
         }
     }
-    sanityCounterNarrativesPage {
+    sanityFictionsPage {
         title
-        descriptionCounterNarratives
+        descriptionFictions
         seo {
-            title
-            description
-            image {
-                asset {
-                url
-                }
+        title
+        description
+        image {
+            asset {
+            url
             }
         }
+        }
     }
-    allSanityCounterNarrative(sort: {order: ASC, fields: orderRank})  {
+    allSanityFiction {
         edges {
             node {
                 _id
@@ -63,18 +63,15 @@ export const data = graphql`
                 slug {
                     current
                 }
-                theTeam
-                city
-                year
+                credits
                 _rawProjectDescription
-                vimeoId
                 thumbnail {
                     alt
                     asset {
                         gatsbyImageData(
-                            layout: FULL_WIDTH
-                            outputPixelDensities: 1.5
-                            placeholder: DOMINANT_COLOR
+                        layout: FULL_WIDTH
+                        outputPixelDensities: 1.5
+                        placeholder: DOMINANT_COLOR
                         )
                     }
                 }
@@ -89,16 +86,16 @@ export const data = graphql`
 
 
 
-const CounternarrativesPage = ({data}) => {
+const FictionsPage = ({data}) => {
 
-    const pink = true
+    const pink = false
 
     return(
         <Layout pink={pink}>
-            <Seo title={data.sanityCounterNarrativesPage.seo.title} description={data.sanityCounterNarrativesPage.seo.description} image={data.sanityCounterNarrativesPage.seo.image.asset.url} />
-            <HeroCounternarratives data={data} />
+            <Seo title={data.sanityFictionsPage.seo.title} description={data.sanityFictionsPage.seo.description} image={data.sanityFictionsPage.seo.image.asset.url} />
+            <HeroFictions data={data} />
         </Layout>
     )
 }
 
-export default CounternarrativesPage
+export default FictionsPage

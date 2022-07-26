@@ -1,10 +1,18 @@
+import {
+    orderRankField,
+    orderRankOrdering,
+  } from '@sanity/orderable-document-list';
+
+
 export default {
     //
     name: 'counterNarrative',
     title: 'Counter Narratives',
     type: 'document',
     icon: () => `🌏`,
+    orderings: [orderRankOrdering],
     fields: [
+        orderRankField({ type: 'counterNarrative', hidden: true }),
         {
             name: 'title',
             title: 'Title',
@@ -47,6 +55,18 @@ export default {
             name: 'vimeoId',
             title: 'Vimeo ID',
             type: 'string'
+        },
+        {
+            title: 'Previus Project',
+            name: 'prev',
+            type: 'reference',
+            to: [{type: 'counterNarrative'}]
+        },
+        {
+            title: 'Next Project',
+            name: 'next',
+            type: 'reference',
+            to: [{type: 'counterNarrative'}]
         },
         {
             name: 'seo',

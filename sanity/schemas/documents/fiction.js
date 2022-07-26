@@ -1,16 +1,18 @@
+import {
+    orderRankField,
+    orderRankOrdering,
+  } from '@sanity/orderable-document-list';
+
+
 export default {
     //
     name: 'fiction',
     title: 'Fictions',
     type: 'document',
     icon: () => `🎭`,
-    groups: [
-        {
-          name: 'gridProject',
-          title: 'Grid',
-        },
-      ],
+    orderings: [orderRankOrdering],
     fields: [
+        orderRankField({ type: 'fiction', hidden: true }),
         {
             name: 'title',
             title: 'Title',
@@ -30,21 +32,26 @@ export default {
             type: 'imageType',
         },
         {
+            name: 'credits',
+            title: 'Credits',
+            type: 'text'
+        },
+        {
             name: 'projectDescription',
             title: 'Project Description',
             type: 'blockModule',
         },
         {
-            name: 'columnsGrid',
-            title: 'Columns',
-            type: 'columns',
-            group: 'gridProject',
+            title: 'Previus Project',
+            name: 'prev',
+            type: 'reference',
+            to: [{type: 'fiction'}]
         },
         {
-            name: 'initialColumnField',
-            title: 'Initial Column',
-            type: 'initialcolumn',
-            group: 'gridProject',
+            title: 'Next Project',
+            name: 'next',
+            type: 'reference',
+            to: [{type: 'fiction'}]
         },
         {
             name: 'seo',
@@ -52,4 +59,11 @@ export default {
             type: 'seo'
         }
     ],
+    preview: {
+        select: {
+          title: 'title',
+          subtitle: 'projectDescription',
+          media: 'thumbnail'
+        }
+      }
 }

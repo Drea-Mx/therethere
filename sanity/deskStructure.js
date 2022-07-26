@@ -6,10 +6,24 @@ export default () =>
   S.list()
     .title('Pages')
     .items([
-        orderableDocumentListDeskItem({
-          type: 'architecture',
-          title: 'Architectures',
-        }),
+        orderableDocumentListDeskItem(
+          {
+            type: 'architecture',
+            title: 'Architectures',
+          }
+        ),
+        orderableDocumentListDeskItem(
+          {
+            type: 'counterNarrative',
+            title: 'Counter Narratives',
+          },
+        ),
+        orderableDocumentListDeskItem(
+          {
+            type: 'fiction',
+            title: 'Fictions',
+          },
+        ),
         S.listItem()
           .title('Settings')
           .icon(() => '⚙️')

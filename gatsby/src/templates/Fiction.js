@@ -3,28 +3,35 @@ import { graphql } from "gatsby";
 import Seo from "../components/layout/seo";
 import styled from "styled-components";
 import BlockContent from '@sanity/block-content-to-react';
-import Parser from 'html-react-parser';
 import Layout from "../components/layout/layout";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 export const query = graphql`
   query ($slug: String!) {
-    counter: sanityCounterNarrative(slug: { current: { eq: $slug } }) {
+    fiction: sanityFiction(slug: { current: { eq: $slug } }) {
         title
+        credits
         _rawProjectDescription
-        theTeam
-        vimeoId
-        city
-        year
+        thumbnail {
+            alt
+            asset {
+                gatsbyImageData(
+                layout: FULL_WIDTH
+                outputPixelDensities: 1.5
+                placeholder: DOMINANT_COLOR
+                )
+            }
+        }
         prev {
             slug {
-            current
+                current
             }
         }
         next {
             slug {
-            current
+                current
             }
         }
         seo {
@@ -40,70 +47,63 @@ export const query = graphql`
   }
 `;
 
-const SingleCounterProject = ({ data: { counter }}) => {
+const SingleFictionProject = ({ data: { fiction }}) => {
 
-    const pathLink = typeof window !== 'undefined' ? window.location.href : '';
-    const video = `<iframe src="https://player.vimeo.com/video/${counter.vimeoId}?h=58c4a2b2c3" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
-
+    const bgGetDataImage = getImage(fiction.thumbnail.asset)
+    const bgGetDataImageAlt = fiction.thumbnail.alt
 
     return(
         <Layout>
         <Seo
-          title={counter.seo.title} image={counter.seo.image.asset.url} description={counter.seo.description}
+          title={fiction.seo.title} image={fiction.seo.image.asset.url} description={fiction.seo.description}
         />
 
 
-        <SingleCountProjContainer className='project'>
-            <img src='/counterBG.png' alt="backgound Counter Narratives" />
+        <SingleFictionProjContainer className='project'>
+            <img src='/bgFictions.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
-                <AniLink to={`/counternarratives`} className='close' cover bg="#F408F4">
-                    <img src='/Close.svg' alt='Close button' />
+                <AniLink to={`/fictions`} className='close' cover bg="#F408F4">
+                    <img src='/xPink.png' alt='Close button' />
                 </AniLink>
                 <div className="arrow">
-                    <AniLink to={`/counternarratives/${counter.prev.slug.current}`} direction="left" className='back' cover bg="#F408F4">
-                        <img src='/back.png' alt='Back button' />
+                    <AniLink to={`/fictions/${fiction.prev.slug.current}`} direction="left" className='back' cover bg="#F408F4">
+                        <img src='/arPink.png' alt='Back button' />
                     </AniLink>
-                    <AniLink to={`/counternarratives/${counter.next.slug.current}`} direction="right" className='next' cover bg="#F408F4">
-                        <img src='/Next.png' alt='Next button' />
+                    <AniLink to={`/fictions/${fiction.next.slug.current}`} direction="right" className='next' cover bg="#F408F4">
+                        <img src='/arPink.png' alt='Next button' />
                     </AniLink>
                 </div>
                 <div className='iz'>
-                    <h1>{counter.title}</h1>
-                    <div className='share'>
-                        <p>Share:</p>
-                        <a target='_blank' rel="noreferrer" href={`http://twitter.com/share?text=${counter.title}&url=${pathLink}`}>Twitter</a>
-                        <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/dialog/feed?&app_id=440357587784784&link=${pathLink}&display=popup&quote=${counter.title}`} >Facebook</a>
-                        <a target='_blank' rel="noreferrer" href={`mailto:?subject=${counter.title}&body=Check out this website %0D %0D ${pathLink} %0D%0D`} >Mail</a>
-                    </div>
+                    <h1>{fiction.title}</h1>
                     <div className='team'>
-                        <p>TEAM:</p>
-                        <p>{counter.theTeam}</p>
+                        <p>CREDITS:</p>
+                        <p>{fiction.credits}</p>
                     </div>
                     <div className='body'>
                         <BlockContent
-                            blocks={counter._rawProjectDescription}
+                            blocks={fiction._rawProjectDescription}
                         />
                     </div>
                 </div>
                 <div className='de'>
-                    <div className='player'>
-                        {Parser(video)}
+                    <div className='image'>
+                        <GatsbyImage
+                            style={{ height: "100%", width: "100%" }}
+                            image={bgGetDataImage}
+                            alt={bgGetDataImageAlt}
+                        />
                     </div>
                 </div>
             </div>
-        </SingleCountProjContainer>
+        </SingleFictionProjContainer>
       </Layout>
     )
 }
 
 
-const SingleCountProjContainer = styled.div`
+const SingleFictionProjContainer = styled.div`
 height: 100vh;
 width: 100vw;
-img {
-    position: fixed;
-    width: 100%;
-}
 .clicked {
     top: 0 !important;
 }
@@ -120,11 +120,11 @@ img {
     padding: 50px;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    color: white;
-    background: linear-gradient(180deg, rgba(241, 115, 56, 0.7) 80.48%, rgba(243, 13, 243, 0.681771) 100%);
+    color: var(--pink);
+    background: rgba(249, 249, 249, 0.6);
     backdrop-filter: blur(20px);
     @media (max-width: 650px) {
-        background: linear-gradient(180deg, rgba(243, 155, 114, 1) 80.48%, rgba(244, 89, 242, 1) 100%);
+        background: white;
         padding: 0;
     }
     .arrow {
@@ -132,6 +132,14 @@ img {
         bottom: 100px;
         right: 30px;
         display: flex;
+        z-index: 10;
+        a {
+            &:first-child {
+                img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
         @media (max-width: 850px) {
             display: none;
         }
@@ -177,7 +185,7 @@ img {
         @media (max-width: 850px) {
             grid-column: 1/6;
         }
-        @media (max-width: 650px) {
+        @media (max-width: 850px) {
             grid-column: 1/11;
             height: 100vh;
             display: flex;
@@ -211,13 +219,6 @@ img {
                 padding: 20px;
                 margin: 0 !important;
             }
-            .share {
-                grid-row: 4/5;
-                position: absolute;
-                bottom: 0px;
-                margin: 0;
-                padding: 0 20px ;
-            }
         }
         /* Hide scrollbar for Chrome, Safari and Opera */
         &::-webkit-scrollbar {
@@ -227,15 +228,6 @@ img {
             margin-bottom: 20px;
             font-size: 2.5rem;
             word-break: break-word;
-        }
-        .share {
-            margin-bottom: 20px;
-            p, a {
-                text-transform: uppercase;
-            }
-            a {
-                margin-right: 8px;
-            }
         }
         .body {
             p {
@@ -247,59 +239,16 @@ img {
     .de {
         grid-column: 4/11;
         @media (max-width: 850px) {
-            grid-column: 6/11;
-        }
-        @media (max-width: 650px) {
             display: none;
         }
-        .player {
+        .image {
             padding: 0 50px;
             width: 100%;
-            iframe {
-                width: 100%;
-            }
-        }
-    }
-}
-a {
-    &:hover {
-        .image {
+            display: flex;
+            justify-content: center;
             img {
-                filter: blur(10px);
-            }
-            .cont {
-                opacity: 1;
-            }
-        }
-    }
-    .image {
-        position: relative;
-        img {
-                filter: blur(0);
-                transition: filter 350ms ease-in-out;
-            }
-        .cont {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 350ms ease-in-out;
-            .text {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: 20px;
-                text-align: center;
-                color: white;
-                div {
-                    display: flex;
-                    justify-content: center;
-                }
+                width: auto;
+                max-height: 80vh;
             }
         }
     }
@@ -308,4 +257,4 @@ a {
 
 
 
-export default SingleCounterProject;
+export default SingleFictionProject;

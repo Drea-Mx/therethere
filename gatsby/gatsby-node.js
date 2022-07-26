@@ -70,12 +70,44 @@ async function turnCounterIntoPages({graphql, actions}) {
 }
 
 
+async function turnFictionIntoPages({graphql, actions}) {
+  // 1. Get a template for this page
+  const fictionTemplate = path.resolve('./src/templates/Fiction.js')
+  // 2. Query all artists
+  const {data} = await graphql(`
+      query {
+          fictions: allSanityFiction {
+            nodes {
+              title
+              slug {
+                current
+              }
+            }
+          }
+      }
+  `);
+  // 3. Loop over each artist and create a page for each artist
+  data.fictions.nodes.forEach((fiction) => {
+      actions.createPage({
+          // url forths new page
+          path: `/fictions/${fiction.slug.current}`,
+          component: fictionTemplate,
+          context: {
+              language: 'en',
+              slug: fiction.slug.current,
+          }
+      })
+  });
+}
+
+
 exports.createPages = async (params) => {
 // Create Pages dynamically
     await Promise.all([
         // 1. Architectures
         turnArchitecturesIntoPages(params),
         turnCounterIntoPages(params),
+        turnFictionIntoPages(params),
 
     ])
 }
