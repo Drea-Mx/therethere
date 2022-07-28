@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from "gatsby";
 import Layout from '../components/layout/layout'
 import Seo from '../components/layout/seo'
-import HeroFictions from '../components/fictions/HeroFictions';
+import HeroAbout from '../components/about/HeroAbout';
 
 
 
@@ -42,43 +42,38 @@ export const data = graphql`
         }
         }
     }
-    sanityFictionsPage {
+    sanityAboutPage {
         title
-        descriptionFictions
-        seo {
-        title
-        description
-        image {
-            asset {
+        _rawDescriptionAbout
+        titleFounding
+        _rawDescriptionFounding
+        titleAllies
+        _rawDescriptionAllies
+        awardsTitle
+        awards {
+            _key
+            title
+            award
+            subtitle
             url
-            }
         }
+        newsTitle
+        new {
+            _key
+            title
+            subtitle
+            url
         }
-    }
-    allSanityFiction {
-        edges {
-            node {
-                _id
-                title
-                slug {
-                    current
-                }
-                credits
-                _rawProjectDescription
-                thumbnail {
-                    alt
-                    asset {
-                        gatsbyImageData(
-                        layout: FULL_WIDTH
-                        outputPixelDensities: 1.5
-                        placeholder: DOMINANT_COLOR
-                        )
-                    }
+        seo {
+            title
+            description
+            image {
+                asset {
+                url
                 }
             }
         }
     }
-    
   }
 `;
 
@@ -86,16 +81,16 @@ export const data = graphql`
 
 
 
-const FictionsPage = ({data}) => {
+const AboutPage = ({data}) => {
 
-    const pink = 'var(--pink)'
+    const pink = 'var(--black)'
 
     return(
         <Layout pink={pink}>
-            <Seo title={data.sanityFictionsPage.seo.title} description={data.sanityFictionsPage.seo.description} image={data.sanityFictionsPage.seo.image.asset.url} />
-            <HeroFictions data={data} />
+            <Seo title={data.sanityAboutPage.seo.title} description={data.sanityAboutPage.seo.description} image={data.sanityAboutPage.seo.image.asset.url} />
+            <HeroAbout data={data} />
         </Layout>
     )
 }
 
-export default FictionsPage
+export default AboutPage

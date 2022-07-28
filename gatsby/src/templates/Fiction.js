@@ -7,6 +7,8 @@ import Layout from "../components/layout/layout";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import arrowPrev from '../assets/images/alPink.png'
+import arrowNext from '../assets/images/arPink.png'
 
 export const query = graphql`
   query ($slug: String!) {
@@ -129,10 +131,12 @@ width: 100vw;
     }
     .arrow {
         position: absolute;
-        bottom: 100px;
-        right: 30px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
-        z-index: 10;
+        z-index: 1;
         a {
             &:first-child {
                 img {
@@ -144,24 +148,24 @@ width: 100vw;
             display: none;
         }
         img {
-            width: 13px;
+            display: none;
         }
         .next {
-            width: 30px;
-            height: 30px;
-            display: block;
+            width: 50%;
+            height: 100%;
+            cursor: url(${arrowNext}) 10 10, auto;
         }
         .back {
-            width: 30px;
-            height: 30px;
-            display: block;
-            margin-right: 50px;
+            width: 50%;
+            height: 100%;
+            cursor: url(${arrowPrev}) 10 10, auto;
         }
     }
     a.close {
         position: absolute;
         top: 50px;
         right: 50px;
+        z-index: 2;
         @media (max-width: 650px) {
             right: 30px;
             bottom: 25px;

@@ -15,8 +15,28 @@ export default {
             type: 'blockModule',
         },
         {
-            name: 'awardsText',
-            title: 'Awards Text',
+            name: 'titleFounding',
+            title: 'Founding Title',
+            type: 'string',
+        },
+        {
+            name: 'descriptionFounding',
+            title: 'Description Founding',
+            type: 'blockModule',
+        },
+        {
+            name: 'titleAllies',
+            title: 'Allies Title',
+            type: 'string',
+        },
+        {
+            name: 'descriptionAllies',
+            title: 'Description Allies',
+            type: 'blockModule',
+        },
+        {
+            name: 'awardsTitle',
+            title: 'Awards Title',
             type: 'string',
         },
         {
@@ -30,24 +50,24 @@ export default {
             ]
         },
         {
-            name: 'seo',
-            title: 'SEO',
-            type: 'seo'
+            name: 'newsTitle',
+            title: 'News Title',
+            type: 'string',
         },
         {
-            name: 'newsText',
-            title: 'News Text',
-            type: 'string'
-        },
-        {
-            name: 'news',
+            name: 'new',
             title: 'News',
             type: 'array',
             of: [
                 {
-                    type: 'newObject'
+                    type: 'newAbout'
                 }
             ]
+        },
+        {
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo'
         },
     ],
 }

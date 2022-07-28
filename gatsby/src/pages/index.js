@@ -115,9 +115,9 @@ const IndexPage = ({data}) => {
 
 
 
-
+    const pink = 'var(--white)'
     return(
-        <Layout>
+        <Layout pink={pink}>
             <Seo title={data.sanityHomePage.seo.title} description={data.sanityHomePage.seo.description} image={data.sanityHomePage.seo.image.asset.url} />
             {showModal ? 
                 <Blur data={data} />

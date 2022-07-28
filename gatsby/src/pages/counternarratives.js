@@ -91,7 +91,7 @@ export const data = graphql`
 
 const CounternarrativesPage = ({data}) => {
 
-    const pink = true
+    const pink = 'var(--pink)'
 
     return(
         <Layout pink={pink}>

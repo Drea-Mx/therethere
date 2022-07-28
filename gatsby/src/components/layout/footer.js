@@ -21,8 +21,8 @@ padding: 0 50px 200px;
 display: flex;
 width: 100%;
 justify-content: space-between;
-background-color: ${pink === true ? 'var(--pink)' : 'var(--white)'};
-color: ${pink === true ? 'white' : 'var(--pink)'};
+background-color: ${pink};
+color: ${pink === 'var(--pink)' ? 'var(--white)' : 'var(--pink)'};
 @media (max-width: 850px) {
     padding: 50px 20px 150px;
     p {

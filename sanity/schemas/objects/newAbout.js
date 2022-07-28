@@ -1,16 +1,11 @@
 export default {
-    name: 'award',
-    title: 'Award',
+    name: 'newAbout',
+    title: 'New',
     type: 'object',
     fields: [
         {
             name: 'title',
             title: 'Title',
-            type: 'string'
-        },
-        {
-            name: 'award',
-            title: 'Award',
             type: 'string'
         },
         {
@@ -27,7 +22,7 @@ export default {
     preview: {
         select: {
           title: 'title',
-          subtitle: 'subtitle',
+          subtitle: 'url',
         }
       }
 }

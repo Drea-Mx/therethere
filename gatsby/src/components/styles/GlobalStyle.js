@@ -13,6 +13,7 @@ body::-webkit-scrollbar {
     :root {
       --pink: #F408F4;
       --white: #F9F9F9;
+      --black: #161616;
     }
     * {
         box-sizing: border-box;

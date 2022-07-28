@@ -17,6 +17,7 @@ import meta from './objects/meta'
 import columns from './objects/columns'
 import initialcolumn from './objects/initialcolumn'
 import award from './objects/award'
+import newAbout from './objects/newAbout'
 import newObject from './objects/new'
 
 import homePage from './documents/homePage'
@@ -49,6 +50,7 @@ export default createSchema({
     columns,
     initialcolumn,
     award,
+    newAbout,
     newObject,
 
     homePage,
