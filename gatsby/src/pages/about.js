@@ -85,8 +85,10 @@ const AboutPage = ({data}) => {
 
     const pink = 'var(--black)'
 
+    const black = true
+
     return(
-        <Layout pink={pink}>
+        <Layout pink={pink} black={black} >
             <Seo title={data.sanityAboutPage.seo.title} description={data.sanityAboutPage.seo.description} image={data.sanityAboutPage.seo.image.asset.url} />
             <HeroAbout data={data} />
         </Layout>

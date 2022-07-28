@@ -5,7 +5,7 @@ import { Typography } from "../styles/Typography"
 import Header from "./header"
 import Footer from "./footer"
 
-function Layout({ children, pink }) {
+function Layout({ children, pink, black }) {
 
   
   return (
@@ -13,7 +13,7 @@ function Layout({ children, pink }) {
       <Normalizer />
       <Typography />
       <GlobalStyle />
-      <Header />
+      <Header black={black} />
       <main>{children}</main>
       <Footer pink={pink} />
     </>
