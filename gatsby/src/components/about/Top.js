@@ -13,7 +13,7 @@ const Top = ({data}) => {
                     />
                 </div>
             </div>
-            <div className='mid item'>
+            <div className='mid item' id='founding'>
                 <h2>{data.sanityAboutPage.titleFounding}</h2>
                 <div className='body'>
                     <BlockContent
@@ -21,7 +21,7 @@ const Top = ({data}) => {
                     />
                 </div>
             </div>
-            <div className='de item'>
+            <div className='de item' id='allies'>
                 <h2>{data.sanityAboutPage.titleAllies}</h2>
                 <div className='body'>
                     <BlockContent

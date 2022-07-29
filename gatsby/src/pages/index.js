@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import Blur from '../components/home/Blur';
+import React from "react";
 import { graphql } from "gatsby";
 import Layout from '../components/layout/layout'
 import Seo from '../components/layout/seo'
 import HeroHome from '../components/home/HeroHome';
+import Blurr from "../components/home/Blurr";
+
+
+
+
 
 export const data = graphql`
   query {
@@ -16,7 +20,7 @@ export const data = graphql`
                 gatsbyImageData(
                 layout: FULL_WIDTH
                 outputPixelDensities: 1.5
-                placeholder: DOMINANT_COLOR
+                placeholder: BLURRED
                 )
             }
         }
@@ -26,7 +30,7 @@ export const data = graphql`
                 gatsbyImageData(
                 layout: FULL_WIDTH
                 outputPixelDensities: 1.5
-                placeholder: DOMINANT_COLOR
+                placeholder: BLURRED
                 )
             }
         }
@@ -36,7 +40,7 @@ export const data = graphql`
             gatsbyImageData(
             layout: FULL_WIDTH
             outputPixelDensities: 1.5
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
             )
         }
         }
@@ -71,7 +75,7 @@ export const data = graphql`
                 gatsbyImageData(
                     layout: FULL_WIDTH
                     outputPixelDensities: 1.5
-                    placeholder: DOMINANT_COLOR
+                    placeholder: BLURRED
                 )
                 }
             }
@@ -82,7 +86,7 @@ export const data = graphql`
                     gatsbyImageData(
                         layout: FULL_WIDTH
                         outputPixelDensities: 1.5
-                        placeholder: DOMINANT_COLOR
+                        placeholder: BLURRED
                     )
                 }
             }
@@ -96,32 +100,11 @@ export const data = graphql`
 
 const IndexPage = ({data}) => {
 
-
-    const session = "test";
-    const [showModal, setShowModal] = useState(false);
-    
-    const hideModal = () => {
-      console.log("hideModal");
-      const modalKey = "modalSession";
-      localStorage.setItem(modalKey, session);
-      setShowModal(false);
-    };
-
-    useEffect(() => {
-      const modalKey = "modalSession";
-      const modalSession = localStorage.getItem(modalKey);
-      setShowModal(modalSession !== session);
-    },[showModal, hideModal]);
-
-
-
     const pink = 'var(--white)'
     return(
         <Layout pink={pink}>
             <Seo title={data.sanityHomePage.seo.title} description={data.sanityHomePage.seo.description} image={data.sanityHomePage.seo.image.asset.url} />
-            {showModal ? 
-                <Blur data={data} />
-            : ""}
+            <Blurr />
             <HeroHome data={data} />
         </Layout>
     )

@@ -1,12 +1,84 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlockContent from '@sanity/block-content-to-react';
+import { useStaticQuery, graphql } from "gatsby";
 
 
 
+const Blurr = () => {
 
-const Blur = ({data}) => {
+    const data = useStaticQuery(graphql`
+    query {
+        sanitySettingsPage {
+            headerTitle1
+            headerTitle2
+            logos {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: BLURRED
+                    )
+                }
+            }
+            logoSansSerif {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: BLURRED
+                    )
+                }
+            }
+            logoSerif {
+            alt
+            asset {
+                gatsbyImageData(
+                layout: FULL_WIDTH
+                outputPixelDensities: 1.5
+                placeholder: BLURRED
+                )
+            }
+            }
+        }
+        sanityHomePage {
+            _rawDescriptionHome
+            title
+            subTitle
+            seo {
+                title
+                description
+                image {
+                    asset {
+                    url
+                    }
+                }
+            }
+        }
+    }
+    `);
+    
+
+    const session = "test";
+    const [showModal, setShowModal] = useState(false);
+    
+    const hideModal = () => {
+      console.log("hideModal");
+      const modalKey = "modalSession";
+      localStorage.setItem(modalKey, session);
+      setShowModal(false);
+    };
+
+    useEffect(() => {
+      const modalKey = "modalSession";
+      const modalSession = localStorage.getItem(modalKey);
+      setShowModal(modalSession !== session);
+    },[showModal, hideModal]);
+
+
 
     const bgGetDataImage1 = getImage(data.sanitySettingsPage.logoSansSerif.asset)
     const bgGetDataImageAlt1 = data.sanitySettingsPage.logoSansSerif.alt
@@ -22,6 +94,7 @@ const Blur = ({data}) => {
 
     return(
         <BlurContainer>
+            {showModal ? (
             <div className={clickArrow ? 'top container' : 'container'}>
                 <div className='overlay'></div>
                 <div className='text'>
@@ -55,6 +128,7 @@ const Blur = ({data}) => {
                     </button>
                 </div>
             </div>
+            ) : null}
         </BlurContainer>
     )
 }
@@ -212,4 +286,4 @@ const BlurContainer = styled.section`
 `
 
 
-export default Blur
+export default Blurr

@@ -9,6 +9,14 @@ import HeroAbout from '../components/about/HeroAbout';
 export const data = graphql`
   query {
     sanitySettingsPage {
+        email
+        downloadsCV {
+            asset {
+                url
+            }
+        }
+        vimeo
+        instagramUrl
         headerTitle1
         headerTitle2
         logos {
@@ -17,7 +25,7 @@ export const data = graphql`
                 gatsbyImageData(
                 layout: FULL_WIDTH
                 outputPixelDensities: 1.5
-                placeholder: DOMINANT_COLOR
+                placeholder: BLURRED
                 )
             }
         }
@@ -27,7 +35,7 @@ export const data = graphql`
                 gatsbyImageData(
                 layout: FULL_WIDTH
                 outputPixelDensities: 1.5
-                placeholder: DOMINANT_COLOR
+                placeholder: BLURRED
                 )
             }
         }
@@ -37,10 +45,11 @@ export const data = graphql`
             gatsbyImageData(
             layout: FULL_WIDTH
             outputPixelDensities: 1.5
-            placeholder: DOMINANT_COLOR
+            placeholder: BLURRED
             )
         }
         }
+        
     }
     sanityAboutPage {
         title

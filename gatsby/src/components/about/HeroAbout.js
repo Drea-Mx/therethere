@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Top from './Top'
 import Bot from './Bot'
+import { Link } from 'gatsby'
 
 const HeroAbout = ({data}) => {
 
@@ -23,6 +24,22 @@ const HeroAbout = ({data}) => {
                             image={bgGetDataImage}
                             alt={bgGetDataImageAlt}
                         />
+                    </div>
+                </div>
+                <div className='fixed'>
+                    <div className='lef'>
+                        <a href={`mailto:${data.sanitySettingsPage.email}`}>E-Mail</a>
+                        <a download href={data.sanitySettingsPage.downloadsCV.asset.url}>Download CV</a>
+                        <a href={data.sanitySettingsPage.vimeo} rel="noreferrer" target='_blank' >Vimeo</a>
+                        <a href={data.sanitySettingsPage.instagramUrl} rel="noreferrer" target='_blank' >Instagram</a>
+                    </div>
+                    <div className='rig'>
+                        
+                        <Link to='/about#top'>About</Link>
+                        <Link to='/about#founding'>FOUNDING PRINCIPAL</Link>
+                        <Link to='/about#allies'>ALLIES</Link>
+                        <Link to='/about#awards'>Awards</Link>
+                        <Link to='/about#news'>News</Link>
                     </div>
                 </div>
                 <Top data={data} />
@@ -48,7 +65,44 @@ color: var(--pink);
     .container {
         position: relative;
         width: 100%;
-        
+        .fixed {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 5;
+            a {
+                text-transform: uppercase;
+            }
+            .lef {
+                padding-left: 50px;
+                @media (max-width:850px) {
+                    position: absolute;
+                    bottom: 0px;
+                    width: 100%;
+                    text-align: center;
+                }
+                a {
+                    margin-right: 20px;
+                }
+            }
+            .rig {
+                padding-right: 50px;
+
+                @media (max-width:850px) {
+                    width: 100%;
+                    position: absolute;
+                    bottom: 20px;
+                    text-align: center;
+                    justify-self: center;
+                }
+                a {
+                    margin-left: 20px;
+                }
+            }
+        }
         .floatL {
             position: fixed;
             top: 20px;

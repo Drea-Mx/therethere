@@ -47,5 +47,25 @@ export default {
             title: 'Copyright',
             type: 'string'
         },
+        {
+            name: 'email',
+            title: 'E-Mail',
+            type: 'string'
+        },
+        {
+            name: 'downloadsCV',
+            title: 'Download CV',
+            type: 'file'
+        },
+        {
+            name: 'vimeo',
+            title: 'Vimeo URL',
+            type: 'url'
+        },
+        {
+            name: 'instagramUrl',
+            title: 'Instagram URL',
+            type: 'url'
+        },
     ],
 }

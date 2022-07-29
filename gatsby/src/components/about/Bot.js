@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Bot = ({data}) => {
     return(
         <CountProjContainer>
-            <div className='iz'>
+            <div className='iz' id='awards'>
                 <h2 className='titlee'>{data.sanityAboutPage.awardsTitle}</h2>
                 <div className='loop'>
                     {data.sanityAboutPage.awards.map(({ _key, title, award, subtitle, url }) => {
@@ -18,7 +18,7 @@ const Bot = ({data}) => {
                     })}
                 </div>
             </div>
-            <div className='de'>
+            <div className='de' id='news'>
                 <h2 className='titlee'>{data.sanityAboutPage.newsTitle}</h2>
                 <div className='loop'>
                     {data.sanityAboutPage.new.map(({ _key, title, subtitle, url }) => {
