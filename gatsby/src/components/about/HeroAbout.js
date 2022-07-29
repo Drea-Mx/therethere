@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Top from './Top'
+import Bot from './Bot'
 
 const HeroAbout = ({data}) => {
 
@@ -25,6 +26,7 @@ const HeroAbout = ({data}) => {
                     </div>
                 </div>
                 <Top data={data} />
+                <Bot data={data} />
                 <div className='top'>
                     <a href='#top'>Back to top</a>
                 </div>
@@ -120,7 +122,7 @@ color: var(--pink);
             width: 150px;
             height: 50px;
             @media (max-width: 850px) {
-                margin-bottom: 100px;
+                padding-bottom: 100px;
             }
             @media (max-width: 650px) {
                 display: none;
