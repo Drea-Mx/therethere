@@ -37,4 +37,12 @@ export const Typography = createGlobalStyle`
     --regular: 'Quadrant Text Mono', monospace;
     --italic: 'Quadrant Text Mono Italic', monospace;
 }
+
+#top .container .title p {
+    letter-spacing: 1px;
+}
+
+p {
+    line-height: 1.6;
+}
 `

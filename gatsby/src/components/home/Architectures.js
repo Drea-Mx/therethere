@@ -92,6 +92,7 @@ const ArchitecturesContainer = styled.section`
                         h2 {
                             font-size: 1.2rem;
                             color: white;
+                            text-transform: uppercase;
                         }
                         p {
                             font-size: 0.8rem;

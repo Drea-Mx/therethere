@@ -167,6 +167,7 @@ a {
             h2 {
                 font-size: 2rem;
                 margin: 10px 0;
+                text-transform: uppercase;
             }
             p.inff {
                 font-size: 1.5rem;
@@ -213,6 +214,9 @@ a {
                 padding: 20px;
                 text-align: center;
                 color: white;
+                h2 {
+                    text-transform: uppercase;
+                }
                 div {
                     display: flex;
                     justify-content: center;

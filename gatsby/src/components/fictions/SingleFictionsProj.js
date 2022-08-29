@@ -195,6 +195,9 @@ a {
             flex-direction: column;
             justify-content: space-between;
             color: white;
+            h2 {
+                text-transform: uppercase;
+            }
         }
     }
     

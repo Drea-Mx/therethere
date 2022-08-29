@@ -40,7 +40,7 @@ const Blur = ({data}) => {
                         />
                     </button>
                     <button className='image2 image'
-                        onClick={() => setClickLogo(clickLogo + 1)}
+                        onClick={() => setClickLogo(clickLogo - 1)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
