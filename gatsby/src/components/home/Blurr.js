@@ -5,6 +5,23 @@ import BlockContent from '@sanity/block-content-to-react';
 import { useStaticQuery, graphql } from "gatsby";
 
 
+const useSessionModal = () => {
+    const session = "test";
+    const [showModal, setShowModal] = useState(false);
+    const hideModal = () => {
+      console.log("hideModal");
+      const modalKey = "modalSession";
+      localStorage.setItem(modalKey, session);
+      setShowModal(false);
+    };
+    useEffect(() => {
+      const modalKey = "modalSession";
+      const modalSession = localStorage.getItem(modalKey);
+      setShowModal(modalSession !== session);
+    });
+    return [showModal, hideModal];
+  };
+
 
 const Blurr = () => {
 
@@ -62,21 +79,6 @@ const Blurr = () => {
     `);
     
 
-    const session = "test";
-    const [showModal, setShowModal] = useState(false);
-    
-    const hideModal = () => {
-      console.log("hideModal");
-      const modalKey = "modalSession";
-      localStorage.setItem(modalKey, session);
-      setShowModal(false);
-    };
-
-    useEffect(() => {
-      const modalKey = "modalSession";
-      const modalSession = localStorage.getItem(modalKey);
-      setShowModal(modalSession !== session);
-    },[showModal, hideModal]);
 
 
 
@@ -87,24 +89,29 @@ const Blurr = () => {
     const bgGetDataImageAlt2 = data.sanitySettingsPage.logoSerif.alt
 
 
-    const [clickLogo, setClickLogo] = useState(1);
+    const [clickLogo, setClickLogo] = useState(false);
 
-    const [clickArrow, setClickArrow] = useState(false);
+
+
+    const [showModal, hideModal] = useSessionModal();
+
+
+    document.cookie = "showedModal=showedModal; path=/";
 
 
     return(
-        <BlurContainer>
-            {showModal ? (
-            <div className={clickArrow ? 'top container' : 'container'}>
+        <BlurContainer >
+
+            <div className={showModal ? 'container' : 'top container'}>
                 <div className='overlay'></div>
                 <div className='text'>
                     <BlockContent
                         blocks={data.sanityHomePage._rawDescriptionHome}
                     />
                 </div>
-                <div className={clickLogo === 1 ? 'logos1 element' : 'active logos1 element'}>
+                <div className={clickLogo ? 'logos1 element active' : 'logos1 element'}>
                     <button className='image1 image'
-                        onClick={() => setClickLogo(clickLogo + 1)}
+                        onClick={() => setClickLogo(!clickLogo)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
@@ -113,7 +120,7 @@ const Blurr = () => {
                         />
                     </button>
                     <button className='image2 image'
-                        onClick={() => setClickLogo(clickLogo + 1)}
+                        onClick={() => setClickLogo(!clickLogo)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
@@ -122,13 +129,13 @@ const Blurr = () => {
                         />
                     </button>
                     <button className="arrow"
-                        onClick={() => setClickArrow(!clickArrow)}
+                        onClick={hideModal}
                     >
                         <img src='/arrowDown.svg' alt='Arrow Down Button' />
                     </button>
                 </div>
             </div>
-            ) : null}
+
         </BlurContainer>
     )
 }
@@ -209,36 +216,34 @@ const BlurContainer = styled.section`
             backdrop-filter: blur(10px);
         }
     }
+   
+        
+        /* .logos1 ~ div {
+
+        } */
     .logos1.active {
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 3;
         .image1 {
             width: 30%;
             position: absolute;
-            top: auto;
-            left: auto;
-
             right: 40px;
             bottom: 80px;
+            top: auto;
+            left: auto;
             @media (max-width: 680px) {
                 width: 65%;
-                left: 50%;
-                bottom: 150px;
+                right: auto !important;
+                left: 50% !important;
                 transform: translateX(-50%);
+                bottom: 150px;
             }
         }
         .image2 {
             width: 30%;
             position: absolute;
-            right: auto;
-            bottom: auto;
-
             top: 80px;
             left: 40px;
+            right: auto;
+            bottom: auto;
             @media (max-width: 680px) {
                 width: 65%;
                 left: 50%;
@@ -246,10 +251,6 @@ const BlurContainer = styled.section`
             }
         }
     }
-        
-        /* .logos1 ~ div {
-
-        } */
     .logos1 {
         position: absolute;
         bottom: 0;

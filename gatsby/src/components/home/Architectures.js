@@ -73,9 +73,9 @@ const ArchitecturesContainer = styled.section`
                         height: 100%;
                         right: 0;
                         z-index: 1;
-                        background-color: pink;
-                        transform: scale(1.06);
-                        filter: blur(4px);
+                        background-color: white;
+                        transform: scale(1.1);
+                        filter: blur(12px);
                     }
                     .text {
                         position: absolute;
@@ -127,8 +127,8 @@ const ArchitecturesContainer = styled.section`
                 grid-row: auto;
                 margin-bottom: 200px;
                 .overlay {
-                    background-image: linear-gradient(rgba(191, 170, 145, .5), rgba(244, 8, 244, .5));
-                }
+                    background: linear-gradient(180deg, rgba(191, 170, 145, 0.5) 41.15%, rgba(244, 8, 244, 0.5) 100%);
+                    filter: blur(50px);                }
                 @media (max-width: 950px) {
                     grid-column: 2/span 4;
                     margin-top: 0px;

@@ -179,8 +179,8 @@ a {
             bottom: 0;
             right: 0;
             background: rgba(247, 129, 247, 1);
-            filter: blur(5px);
-            transform: scale(1.1);
+            filter: blur(10px);
+            transform: scale(1.2);
         }
         .cont {
             position: absolute;

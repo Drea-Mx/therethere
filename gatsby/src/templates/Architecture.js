@@ -137,8 +137,8 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
           title={architecture.seo.title} image={architecture.seo.image.asset.url} description={architecture.seo.description}
         />
         <ArchitecturesContainer >
-            <div className={info ? 'window open' : 'window'}>
-                <button className="closeButton" onClick={() => setInfo(!info)}>
+            <div className={info ? 'window open' : 'window'} onClick={() => setInfo(!info)}>
+                <button className="closeButton">
                     <img className="close" src='/Close.svg' alt='Close button' />
                 </button>
                 <div className="cont">
@@ -149,9 +149,12 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
                         <p>ABOUT</p>
                     </div>
                     <div className="texto">
-                        <BlockContent
-                            blocks={architecture._rawProjectDescription}
-                        />
+                        <div className="scroll">
+                            <BlockContent
+                                blocks={architecture._rawProjectDescription}
+                            />
+                        </div>  
+                        <div className="bar"></div>
                     </div>
                     <div className="information">
                         {architecture.info.map(({ _key, label, value }) => {
@@ -269,6 +272,7 @@ const ArchitecturesContainerMovil = styled.section`
                 overflow-y: scroll;
                 position: relative;
                 padding-bottom: 50px;
+                position: relative;
                 p {
                     margin: 10px auto;
                 }
@@ -328,8 +332,9 @@ const ArchitecturesContainer = styled.div`
     right: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(244, 8, 244, 0.55);
-    backdrop-filter: blur(20px);
+    background: #F408F4;
+    opacity: 0.85;
+    filter: saturate(1.2);
 /* Note: backdrop-filter has minimal browser support */
     z-index: 5;
     transition: top 350ms ease-in-out;
@@ -362,12 +367,32 @@ const ArchitecturesContainer = styled.div`
         .about {
             grid-row: 2/3;
             grid-column: 1/2;
+            p {
+                font-size: 30px;
+            }
         }
         .texto {
             grid-column: 2/6;
             grid-row: 2/3;
-            height: 50vh;
-            overflow-y: scroll;
+            position: relative;
+            overflow: hidden;
+            .scroll {
+                height: 50vh;
+                overflow: scroll;
+                position: relative;
+            }
+            .bar {
+                position: absolute;
+                bottom: -20px;  
+                left: -100px;
+                height: 50px;
+                background-color: #F408F4;
+                opacity: 1;
+                filter: blur(20px);
+                width: 3000px;    
+                overflow: hidden;            
+                pointer-events: none; /* so the text is still selectable */
+            }
             p {
                 margin: 10px auto;
             }
@@ -378,6 +403,9 @@ const ArchitecturesContainer = styled.div`
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
+            p {
+                text-transform: uppercase;
+            }
         }
     }
 }
@@ -438,6 +466,9 @@ const ArchitecturesContainer = styled.div`
             }
             .left {
                 grid-column: 1/3;
+                button {
+                    font-size: 30px;
+                }
             }
             .center {
                 grid-column: 3/9;
@@ -454,6 +485,7 @@ const ArchitecturesContainer = styled.div`
             h1 {
                 text-transform: uppercase;
                 font-weight: normal;
+                font-size: 70px;
                 @media (max-width: 850px) {
                     font-size: 2rem;
                 }
@@ -461,6 +493,7 @@ const ArchitecturesContainer = styled.div`
             p {
                 margin-left: 50px;
                 align-self: center;
+                text-transform: uppercase;
                 @media (max-width: 850px) {
                     margin-left: 0;
                     align-self: flex-start;
@@ -501,7 +534,10 @@ const ArchitecturesContainer = styled.div`
                 transform: translate(-50%, -50%);
                 text-align: center;
                 width: 180px;
-                color: white;
+                transition: color 150ms ease-in-out;
+                &:hover {
+                    color: #F9F9F9;
+                }
             }
         }
     }

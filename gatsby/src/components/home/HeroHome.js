@@ -141,6 +141,7 @@ z-index: 1;
                 flex-direction: column;
                 justify-content: center;
                 border-radius: 25px;
+                
             }
             a {
                 position: absolute;
@@ -149,6 +150,10 @@ z-index: 1;
                 transform: translate(-50%, -50%);
                 text-align: center;
                 width: 180px;
+                transition: color 150ms ease-in-out;
+                &:hover {
+                    color: #F9F9F9;
+                }
             }
         }
     }

@@ -14,7 +14,7 @@ const TwoColumn = ({data}) => {
 
 
     const TwoColumnContainer = styled.section`
-    margin: 100px 0;
+    margin: 150px 0;
     .twoColumn {
         width: 80%;
         margin: 0 auto;

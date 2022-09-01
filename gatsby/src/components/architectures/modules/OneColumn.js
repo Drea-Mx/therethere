@@ -11,10 +11,13 @@ const OneColumn = ({data}) => {
 
 
     const OneColumnContainer = styled.section`
-        margin: 100px 0;
+        margin: 150px 0;
     .oneColumn {
-        width: 80%;
+        width: 35%;
         margin: 0 auto;
+    }
+    .oneColumn.true {
+        width: 80%;
     }
     .true {
         width: 50%;

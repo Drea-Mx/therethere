@@ -200,10 +200,10 @@ const HeroContainer = styled.nav`
                 
             </div>
             <ul className="bot">
-                <li><Link to='/' activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
-                <li><Link to='/counternarratives' activeStyle={{color: "#000000" }}>COUNTERNARRATIVES</Link></li>
-                <li><Link to='/fictions' activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
-                <li><Link to='/about' activeStyle={{color: "#000000" }}>ABOUT</Link></li>
+                <li><Link partiallyActive={true} to='/' activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
+                <li><Link partiallyActive={true} to='/counternarratives' activeStyle={{color: "#000000" }}>COUNTERNARRATIVES</Link></li>
+                <li><Link partiallyActive={true} to='/fictions' activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
+                <li><Link partiallyActive={true} to='/about' activeStyle={{color: "#000000" }}>ABOUT</Link></li>
             </ul>
         </HeroContainer>
     )

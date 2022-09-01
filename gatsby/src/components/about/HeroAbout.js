@@ -45,6 +45,7 @@ const HeroAbout = ({data}) => {
                 <Top data={data} />
                 <Bot data={data} />
                 <div className='top'>
+                    <div className='overlay'></div>
                     <a href='#top'>Back to top</a>
                 </div>
             </div>
@@ -181,6 +182,19 @@ color: var(--pink);
             @media (max-width: 650px) {
                 display: none;
             }
+            .overlay {
+                text-align: center;
+                margin: 0 auto;
+                width: 100px;
+                background-color: pink;
+                background-image: linear-gradient(rgba(244, 8, 244, .8), rgba(244, 8, 244, .8));
+                filter: blur(15px);
+                height: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 25px;
+            }
             a {
                 position: absolute;
                 top: 50%;
@@ -188,6 +202,11 @@ color: var(--pink);
                 transform: translate(-50%, -50%);
                 text-align: center;
                 width: 180px;
+                text-transform: uppercase;
+                transition: color 150ms ease-in-out;
+                &:hover {
+                    color: #F9F9F9;
+                }
             }
         }
     }
