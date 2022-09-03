@@ -57,18 +57,6 @@ export default {
             type: 'string'
         },
         {
-            title: 'Previus Project',
-            name: 'prev',
-            type: 'reference',
-            to: [{type: 'counterNarrative'}]
-        },
-        {
-            title: 'Next Project',
-            name: 'next',
-            type: 'reference',
-            to: [{type: 'counterNarrative'}]
-        },
-        {
             name: 'seo',
             title: 'SEO',
             type: 'seo'

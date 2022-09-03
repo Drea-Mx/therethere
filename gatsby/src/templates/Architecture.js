@@ -144,7 +144,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
           title={architecture.seo.title} image={architecture.seo.image.asset.url} description={architecture.seo.description}
         />
         <ArchitecturesContainer >
-            <div className={info ? 'window open' : 'window'} onClick={() => setInfo(!info)}>
+            <button className={info ? 'window open' : 'window'} onClick={() => setInfo(!info)}>
                 <div className="arrows">
                     <div className="next">
                         {next &&
@@ -188,7 +188,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
                         })}
                     </div>
                 </div>
-            </div>
+            </button>
             <div className="container">
             <h2 className='floatL'>{header.headerTitle1}</h2>
             <h2 className='floatR'>{header.headerTitle2}</h2>
@@ -363,7 +363,7 @@ const ArchitecturesContainer = styled.div`
     .arrows {
         position: absolute;
         top: 100px;
-        left: 0;
+        left: 50%;
         bottom: 0;
         right: 0;
         z-index: 3;
@@ -400,6 +400,7 @@ const ArchitecturesContainer = styled.div`
         padding: 50px;
         color: white;
         align-items: baseline;
+        text-align: left;
         .top {
             grid-column: 1/7;
             grid-row: 1/2;

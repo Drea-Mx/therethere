@@ -17,7 +17,7 @@ const useSessionModal = () => {
       const modalKey = "modalSession";
       const modalSession = localStorage.getItem(modalKey);
       setShowModal(modalSession !== session);
-    });
+    },[]);
     return [showModal, hideModal];
   };
 
@@ -106,7 +106,7 @@ const Blurr = () => {
         window.removeEventListener('scroll', onScroll);
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    }, [hideModal]);
 
 
 

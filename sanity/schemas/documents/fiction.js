@@ -42,18 +42,6 @@ export default {
             type: 'blockModule',
         },
         {
-            title: 'Previus Project',
-            name: 'prev',
-            type: 'reference',
-            to: [{type: 'fiction'}]
-        },
-        {
-            title: 'Next Project',
-            name: 'next',
-            type: 'reference',
-            to: [{type: 'fiction'}]
-        },
-        {
             name: 'seo',
             title: 'SEO',
             type: 'seo'
