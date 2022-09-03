@@ -74,8 +74,8 @@ const ArchitecturesContainer = styled.section`
                         right: 0;
                         z-index: 1;
                         background-color: white;
-                        transform: scale(1.1);
-                        filter: blur(12px);
+                        transform: scale(1.19);
+                        filter: blur(10px);
                     }
                     .text {
                         position: absolute;
@@ -131,7 +131,7 @@ const ArchitecturesContainer = styled.section`
                     filter: blur(50px);                }
                 @media (max-width: 950px) {
                     grid-column: 2/span 4;
-                    margin-top: 0px;
+                    margin-top: 100px;
                     margin-bottom: 100px;
                 }
             }

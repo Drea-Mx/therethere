@@ -9,7 +9,6 @@ const useSessionModal = () => {
     const session = "test";
     const [showModal, setShowModal] = useState(false);
     const hideModal = () => {
-      console.log("hideModal");
       const modalKey = "modalSession";
       localStorage.setItem(modalKey, session);
       setShowModal(false);
@@ -97,6 +96,18 @@ const Blurr = () => {
 
 
     document.cookie = "showedModal=showedModal; path=/";
+
+
+
+
+    useEffect(() => {
+        const onScroll = () => hideModal(window.pageYOffset);
+        // clean up code
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
 
 
     return(

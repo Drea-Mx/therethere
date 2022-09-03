@@ -68,22 +68,26 @@ const SingleCounterProject = ({ data: { counter }}) => {
                     </AniLink>
                 </div>
                 <div className='iz'>
-                    <h1>{counter.title}</h1>
-                    <div className='share'>
-                        <p>Share:</p>
-                        <a target='_blank' rel="noreferrer" href={`http://twitter.com/share?text=${counter.title}&url=${pathLink}`}>Twitter</a>
-                        <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/dialog/feed?&app_id=440357587784784&link=${pathLink}&display=popup&quote=${counter.title}`} >Facebook</a>
-                        <a target='_blank' rel="noreferrer" href={`mailto:?subject=${counter.title}&body=Check out this website %0D %0D ${pathLink} %0D%0D`} >Mail</a>
+                    <div className="bar"></div>
+                    <div className="scroll">
+                        <h1>{counter.title}</h1>
+                        <div className='share'>
+                            <p>Share:</p>
+                            <a target='_blank' rel="noreferrer" href={`http://twitter.com/share?text=${counter.title}&url=${pathLink}`}>Twitter</a>
+                            <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/dialog/feed?&app_id=440357587784784&link=${pathLink}&display=popup&quote=${counter.title}`} >Facebook</a>
+                            <a target='_blank' rel="noreferrer" href={`mailto:?subject=${counter.title}&body=Check out this website %0D %0D ${pathLink} %0D%0D`} >Mail</a>
+                        </div>
+                        <div className='team'>
+                            <p>TEAM:</p>
+                            <p>{counter.theTeam}</p>
+                        </div>
+                        <div className='body'>
+                                <BlockContent
+                                    blocks={counter._rawProjectDescription}
+                                />
+                        </div>
                     </div>
-                    <div className='team'>
-                        <p>TEAM:</p>
-                        <p>{counter.theTeam}</p>
-                    </div>
-                    <div className='body'>
-                        <BlockContent
-                            blocks={counter._rawProjectDescription}
-                        />
-                    </div>
+
                 </div>
                 <div className='de'>
                     <div className='player'>
@@ -169,11 +173,26 @@ img {
     }
     .iz {
         grid-column: 1/4;
-        overflow-x: scroll;
-        height: calc(100vh - 100px);
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
         padding-bottom: 50px;
+        position: relative;
+        .scroll {
+            overflow-x: scroll;
+            height: calc(100vh - 100px);
+        }
+        .bar {
+            position: absolute;
+            bottom: 25px;  
+            left: -100px;
+            z-index: 2;
+            height: 50px;
+            background-color: #F408F4;
+            opacity: 1;
+            filter: blur(20px);
+            width: 5000px;    
+            pointer-events: none; /* so the text is still selectable */
+        }
         @media (max-width: 850px) {
             grid-column: 1/6;
         }
@@ -238,6 +257,9 @@ img {
             }
         }
         .body {
+            position: relative;
+            .scroll {
+            }
             p {
                 margin: 10px 0;
             }

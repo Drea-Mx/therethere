@@ -6,6 +6,11 @@ import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import ArchitectureModules from "../components/architectures/modules/ArchitecturesModules";
 import BlockContent from '@sanity/block-content-to-react';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+
+
+import arrowPrev from '../assets/images/back.png'
+import arrowNext from '../assets/images/Next.png'
 
 
 export const query = graphql`
@@ -122,7 +127,9 @@ export const query = graphql`
   }
 `;
 
-const SingleArchitectureProject = ({ data: {architecture, header}}) => {
+const SingleArchitectureProject = ({ data: {architecture, header}, pageContext}) => {
+
+    const {next, prev} = pageContext
 
     const bgGetDataImage = getImage(header.logos.asset)
     const bgGetDataImageAlt = header.logos.alt
@@ -138,6 +145,20 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
         />
         <ArchitecturesContainer >
             <div className={info ? 'window open' : 'window'} onClick={() => setInfo(!info)}>
+                <div className="arrows">
+                    <div className="next">
+                        {next &&
+                            <AniLink to={`/${next.slug.current}`} direction="left" cover bg="#F408F4">
+                            </AniLink>
+                        }
+                    </div>
+                    <div className="prev">
+                        {prev &&
+                            <AniLink to={`/${prev.slug.current}`} direction="right"  cover bg="#F408F4">
+                            </AniLink>
+                        }
+                    </div>
+                </div>
                 <button className="closeButton">
                     <img className="close" src='/Close.svg' alt='Close button' />
                 </button>
@@ -198,6 +219,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}}) => {
                     </div>
                 </div>
             </div>
+            
             <ArchitectureModules architectureModule={architecture.editorialModule} />
             <div className='top'>
                 <div className='overlay'></div>
@@ -338,6 +360,32 @@ const ArchitecturesContainer = styled.div`
 /* Note: backdrop-filter has minimal browser support */
     z-index: 5;
     transition: top 350ms ease-in-out;
+    .arrows {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 3;
+        .next a {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            cursor: url(${arrowNext}) 10 10, auto;
+            z-index: 4;
+        }
+        .prev  a{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            cursor: url(${arrowPrev}) 10 10, auto;
+            z-index: 4;
+        }
+    }
     .closeButton {
         position: absolute;
         top: 50px;

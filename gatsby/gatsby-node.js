@@ -13,25 +13,33 @@ async function turnArchitecturesIntoPages({graphql, actions}) {
   // 2. Query all artists
   const {data} = await graphql(`
       query {
-          architectures: allSanityArchitecture {
-            nodes {
-              slug {
-                current
+          architectures: allSanityArchitecture(sort: {fields: orderRank, order: ASC}) {
+            edges {
+              node {
+                slug {
+                  current
+                }
+                title
               }
-              title
             }
           }
       }
   `);
   // 3. Loop over each artist and create a page for each artist
-  data.architectures.nodes.forEach((architecture) => {
+  const posts = data.architectures.edges
+  posts.forEach(({node}, index) => {
+    const path = node.slug.current
+
       actions.createPage({
           // url forths new page
-          path: `/${architecture.slug.current}`,
+          path,
           component: architectureTemplate,
           context: {
               language: 'en',
-              slug: architecture.slug.current,
+              slug: path,
+              pathSlug: path,
+              prev: index === 0 ? null : posts[index - 1].node,
+              next: index === (posts.length - 1) ? null : posts[index + 1].node
           }
       })
   });
