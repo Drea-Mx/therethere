@@ -17,16 +17,6 @@ export const query = graphql`
         vimeoId
         city
         year
-        prev {
-            slug {
-            current
-            }
-        }
-        next {
-            slug {
-            current
-            }
-        }
         seo {
             title
             description
@@ -40,7 +30,9 @@ export const query = graphql`
   }
 `;
 
-const SingleCounterProject = ({ data: { counter }}) => {
+const SingleCounterProject = ({ data: { counter }}, pageContext) => {
+
+    const {next, prev} = pageContext
 
     const pathLink = typeof window !== 'undefined' ? window.location.href : '';
     const video = `<iframe src="https://player.vimeo.com/video/${counter.vimeoId}?h=58c4a2b2c3" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
@@ -60,12 +52,16 @@ const SingleCounterProject = ({ data: { counter }}) => {
                     <img src='/Close.svg' alt='Close button' />
                 </AniLink>
                 <div className="arrow">
-                    <AniLink to={`/counternarratives/${counter.prev.slug.current}`} direction="left" className='back' cover bg="#F408F4">
-                        <img src='/back.png' alt='Back button' />
-                    </AniLink>
-                    <AniLink to={`/counternarratives/${counter.next.slug.current}`} direction="right" className='next' cover bg="#F408F4">
-                        <img src='/Next.png' alt='Next button' />
-                    </AniLink>
+                    {next &&
+                        <AniLink to={`/${next.slug.current}`} direction="left" className='next' cover bg="#F408F4">
+                            <img src='/Next.png' alt='Next button' />
+                        </AniLink>
+                    }
+                    {prev &&
+                        <AniLink to={`/${prev.slug.current}`} direction="right" className='back' cover bg="#F408F4">
+                            <img src='/back.png' alt='Back button' />
+                        </AniLink>
+                    }
                 </div>
                 <div className='iz'>
                     <div className="bar"></div>

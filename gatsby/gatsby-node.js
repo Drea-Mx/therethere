@@ -47,32 +47,45 @@ async function turnArchitecturesIntoPages({graphql, actions}) {
 
 
 
+
+
+
+
 async function turnCounterIntoPages({graphql, actions}) {
   // 1. Get a template for this page
   const counterTemplate = path.resolve('./src/templates/Counter.js')
   // 2. Query all artists
   const {data} = await graphql(`
       query {
-          counters: allSanityCounterNarrative {
-            nodes {
-              title
-              slug {
-                current
+          counters: (sort: {fields: orderRank, order: ASC}) {
+            edges {
+              node {
+                slug {
+                  current
+                }
+                title
               }
             }
           }
       }
   `);
   // 3. Loop over each artist and create a page for each artist
-  data.counters.nodes.forEach((counter) => {
+  const postsCount = data.counters.edges
+  postsCount.forEach(({node}, index) => {
+      const pathÇount = `/counternarratives/${node.slug.current}`
+
       actions.createPage({
+
           // url forths new page
-          path: `/counternarratives/${counter.slug.current}`,
+          pathÇount,
           component: counterTemplate,
           context: {
-              language: 'en',
-              slug: counter.slug.current,
-          }
+            language: 'en',
+            slug: pathÇount,
+            pathSlug: pathÇount,
+            prev: index === 0 ? null : postsCount[index - 1].node,
+            next: index === (postsCount.length - 1) ? null : postsCount[index + 1].node
+        }
       })
   });
 }
