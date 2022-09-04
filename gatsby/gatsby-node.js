@@ -12,34 +12,34 @@ async function turnArchitecturesIntoPages({graphql, actions}) {
   const architectureTemplate = path.resolve('./src/templates/Architecture.js')
   // 2. Query all artists
   const {data} = await graphql(`
-      query {
-          architectures: allSanityArchitecture(sort: {fields: orderRank, order: ASC}) {
-            edges {
-              node {
-                slug {
-                  current
-                }
-                title
+         {
+              architectures: allSanityArchitecture(sort: {fields: orderRank, order: ASC}) {
+                  edges {
+                      node {
+                          slug {
+                            current
+                          }
+                        title
+                      }
+                  }
               }
-            }
-          }
-      }
+        }
   `);
   // 3. Loop over each artist and create a page for each artist
-  const posts = data.architectures.edges
-  posts.forEach(({node}, index) => {
-    const path = node.slug.current
+  const postsArch = data.architectures.edges
+  postsArch.forEach(({node}, index) => {
+    const pathArch = node.slug.current
 
       actions.createPage({
           // url forths new page
-          path,
+          path: pathArch,
           component: architectureTemplate,
           context: {
               language: 'en',
-              slug: path,
-              pathSlug: path,
-              prev: index === 0 ? null : posts[index - 1].node,
-              next: index === (posts.length - 1) ? null : posts[index + 1].node
+              slug: pathArch,
+              pathSlug: pathArch,
+              prev: index === 0 ? null : postsArch[index - 1].node,
+              next: index === (postsArch.length - 1) ? null : postsArch[index + 1].node
           }
       })
   });
@@ -56,8 +56,8 @@ async function turnCounterIntoPages({graphql, actions}) {
   const counterTemplate = path.resolve('./src/templates/Counter.js')
   // 2. Query all artists
   const {data} = await graphql(`
-      query {
-          counters: (sort: {fields: orderRank, order: ASC}) {
+       {
+          counters: allSanityCounterNarrative(sort: {fields: orderRank, order: ASC}) {
             edges {
               node {
                 slug {
@@ -70,21 +70,19 @@ async function turnCounterIntoPages({graphql, actions}) {
       }
   `);
   // 3. Loop over each artist and create a page for each artist
-  const postsCount = data.counters.edges
-  postsCount.forEach(({node}, index) => {
-      const pathÇount = `/counternarratives/${node.slug.current}`
+  const postsCounter = data.counters.edges
+  postsCounter.forEach(({node}, index) => {
+      const pathCounter = node.slug.current
 
       actions.createPage({
-
-          // url forths new page
-          pathÇount,
+          path: `/counternarratives/${pathCounter}`,
           component: counterTemplate,
           context: {
             language: 'en',
-            slug: pathÇount,
-            pathSlug: pathÇount,
-            prev: index === 0 ? null : postsCount[index - 1].node,
-            next: index === (postsCount.length - 1) ? null : postsCount[index + 1].node
+            slug: pathCounter,
+            pathSlug: pathCounter,
+            prev: index === 0 ? null : postsCounter[index - 1].node,
+            next: index === (postsCounter.length - 1) ? null : postsCounter[index + 1].node
         }
       })
   });
@@ -96,7 +94,7 @@ async function turnFictionIntoPages({graphql, actions}) {
   const fictionTemplate = path.resolve('./src/templates/Fiction.js')
   // 2. Query all artists
   const {data} = await graphql(`
-      query {
+       {
           fictions: allSanityFiction {
             nodes {
               title

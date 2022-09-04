@@ -55,7 +55,7 @@ export const data = graphql`
         }
         }
     }
-    allSanityFiction {
+    allSanityFiction(sort: {fields: orderRank, order: ASC}) {
         edges {
             node {
                 _id

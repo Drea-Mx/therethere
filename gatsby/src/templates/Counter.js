@@ -30,7 +30,7 @@ export const query = graphql`
   }
 `;
 
-const SingleCounterProject = ({ data: { counter }}, pageContext) => {
+const SingleCounterProject = ({ data: { counter }, pageContext}) => {
 
     const {next, prev} = pageContext
 
@@ -52,14 +52,14 @@ const SingleCounterProject = ({ data: { counter }}, pageContext) => {
                     <img src='/Close.svg' alt='Close button' />
                 </AniLink>
                 <div className="arrow">
-                    {next &&
-                        <AniLink to={`/${next.slug.current}`} direction="left" className='next' cover bg="#F408F4">
-                            <img src='/Next.png' alt='Next button' />
+                    {prev &&
+                        <AniLink to={`/counternarratives/${prev.slug.current}`} direction="right" className='back' cover bg="#F408F4">
+                            <img src='/back.png' alt='Back button' />
                         </AniLink>
                     }
-                    {prev &&
-                        <AniLink to={`/${prev.slug.current}`} direction="right" className='back' cover bg="#F408F4">
-                            <img src='/back.png' alt='Back button' />
+                    {next &&
+                        <AniLink to={`/counternarratives/${next.slug.current}`} direction="left" className='next' cover bg="#F408F4">
+                            <img src='/Next.png' alt='Next button' />
                         </AniLink>
                     }
                 </div>

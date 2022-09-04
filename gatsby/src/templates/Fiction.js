@@ -26,16 +26,6 @@ export const query = graphql`
                 )
             }
         }
-        prev {
-            slug {
-                current
-            }
-        }
-        next {
-            slug {
-                current
-            }
-        }
         seo {
             title
             description
