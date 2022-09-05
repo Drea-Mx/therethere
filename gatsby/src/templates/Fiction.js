@@ -39,7 +39,10 @@ export const query = graphql`
   }
 `;
 
-const SingleFictionProject = ({ data: { fiction }}) => {
+const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
+
+    const {next, prev} = pageContext
+
 
     const bgGetDataImage = getImage(fiction.thumbnail.asset)
     const bgGetDataImageAlt = fiction.thumbnail.alt
@@ -58,12 +61,20 @@ const SingleFictionProject = ({ data: { fiction }}) => {
                     <img src='/xPink.png' alt='Close button' />
                 </AniLink>
                 <div className="arrow">
-                    <AniLink to={`/fictions/${fiction.prev.slug.current}`} direction="left" className='back' cover bg="#F408F4">
-                        <img src='/arPink.png' alt='Back button' />
-                    </AniLink>
-                    <AniLink to={`/fictions/${fiction.next.slug.current}`} direction="right" className='next' cover bg="#F408F4">
-                        <img src='/arPink.png' alt='Next button' />
-                    </AniLink>
+                    <div className='back' >
+                        {prev &&
+                            <AniLink to={`/fictions/${prev.slug.current}`} direction="left" cover bg="#F408F4">
+                                <img src='/arPink.png' alt='Back button' />
+                            </AniLink>
+                        }
+                    </div>
+                    <div className='next'>
+                        {next &&
+                            <AniLink to={`/fictions/${next.slug.current}`} direction="right" cover bg="#F408F4">
+                                <img src='/arPink.png' alt='Next button' />
+                            </AniLink>
+                        }
+                    </div>
                 </div>
                 <div className='iz'>
                     <h1>{fiction.title}</h1>
@@ -121,9 +132,9 @@ width: 100vw;
     }
     .arrow {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+        top: 100px;
+        right: 0;
+        width: 50%;
         height: 100%;
         display: flex;
         z-index: 1;
@@ -141,14 +152,30 @@ width: 100vw;
             display: none;
         }
         .next {
+            position: absolute;
+            top: 0;
+            right: 0;
             width: 50%;
             height: 100%;
-            cursor: url(${arrowNext}) 10 10, auto;
+            a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                cursor: url(${arrowNext}) 10 10, auto;
+            }
         }
         .back {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 50%;
             height: 100%;
-            cursor: url(${arrowPrev}) 10 10, auto;
+            a {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                cursor: url(${arrowPrev}) 10 10, auto;
+            }
         }
     }
     a.close {
@@ -192,7 +219,7 @@ width: 100vw;
             }
             .body {
                 grid-row: 2/3;
-                height: 200px;
+                height: 100%;
                 overflow-y: scroll;
                 padding: 20px 20px 0px;
                 position: relative;

@@ -188,6 +188,10 @@ img {
             filter: blur(20px);
             width: 5000px;    
             pointer-events: none; /* so the text is still selectable */
+            @media (max-width: 650px) {
+                bottom: 60px;
+                filter: blur(15px);
+            }
         }
         @media (max-width: 850px) {
             grid-column: 1/6;
@@ -205,13 +209,13 @@ img {
             }
             .body {
                 grid-row: 2/3;
-                height: 200px;
                 overflow-y: scroll;
                 padding: 20px 20px 0px;
                 position: relative;
                 &::-webkit-scrollbar {
                     display: none;
                 }
+                
                 .bar {
                     height: 50px;
                     width: 100%;
@@ -254,6 +258,9 @@ img {
         }
         .body {
             position: relative;
+            div {
+                padding-bottom: 100px;
+            }
             .scroll {
             }
             p {

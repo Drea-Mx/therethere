@@ -95,26 +95,33 @@ async function turnFictionIntoPages({graphql, actions}) {
   // 2. Query all artists
   const {data} = await graphql(`
        {
-          fictions: allSanityFiction {
-            nodes {
-              title
-              slug {
-                current
+          fictions: allSanityFiction(sort: {fields: orderRank, order: ASC}) {
+            edges {
+              node {
+                title
+                slug {
+                  current
+                }
               }
             }
           }
       }
   `);
   // 3. Loop over each artist and create a page for each artist
-  data.fictions.nodes.forEach((fiction) => {
+  const postsFictions = data.fictions.edges
+  postsFictions.forEach(({node}, index) => {
+    const pathFictions = node.slug.current
       actions.createPage({
           // url forths new page
-          path: `/fictions/${fiction.slug.current}`,
+          path: `/fictions/${pathFictions}`,
           component: fictionTemplate,
           context: {
-              language: 'en',
-              slug: fiction.slug.current,
-          }
+            language: 'en',
+            slug: pathFictions,
+            pathSlug: pathFictions,
+            prev: index === 0 ? null : postsFictions[index - 1].node,
+            next: index === (postsFictions.length - 1) ? null : postsFictions[index + 1].node
+        }
       })
   });
 }
