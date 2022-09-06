@@ -41,7 +41,7 @@ const HeroHome = ({data}) => {
 }
 
 const ProjectsHomeCoontainer = styled.section`
-padding: 50px;
+padding: 20px;
 position: relative;
 z-index: 1;
 @media (max-width: 850px) {
@@ -56,7 +56,7 @@ z-index: 1;
         .floatL {
             position: fixed;
             top: 20px;
-            left: 50px;
+            left: 20px;
             @media (max-width: 850px) {
                 display: none;
             }
@@ -64,7 +64,7 @@ z-index: 1;
         .floatR {
             position: fixed;
             top: 20px;
-            right: 50px;
+            right: 20px;
             @media (max-width: 850px) {
                 display: none;
             }
@@ -93,7 +93,7 @@ z-index: 1;
             display: flex;
             position: fixed;
             top: 250px;
-            left: 50px;
+            left: 20px;
             @media (max-width: 850px) {
                 position: static;
                 margin-top: 50px;

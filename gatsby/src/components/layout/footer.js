@@ -17,7 +17,7 @@ const Footer = ({pink}) => {
     `);
 
 const FooterContainer = styled.footer`
-padding: 0 50px 200px;
+padding: 0 20px 200px;
 display: flex;
 width: 100%;
 justify-content: space-between;

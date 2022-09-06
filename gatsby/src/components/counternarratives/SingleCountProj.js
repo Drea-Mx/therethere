@@ -61,7 +61,8 @@ const SingleCountProjContainer = styled.div`
     height: 100vh;
     background: linear-gradient(180deg, rgba(241, 115, 56, 0.7) 80.48%, rgba(243, 13, 243, 0.681771) 100%);
     backdrop-filter: blur(20px);
-    transition: top 350ms ease-in-out;
+    transform: scale(1.2);
+    transition: all 350ms ease-in-out;
     z-index: 4;
     padding: 50px;
     display: grid;
@@ -153,6 +154,7 @@ const SingleCountProjContainer = styled.div`
     }
 }
 a {
+    transition: all 350ms ease-in;
     .mov {
         display: none;
         @media (max-width: 850px) {
@@ -174,27 +176,12 @@ a {
             }
         }
     }
-    &:hover {
-        .image {
-            img {
-                filter: blur(10px);
-                @media (max-width: 850px) {
-                    filter: none;
-                }
-            }
-            .cont {
-                opacity: 1;
-                @media (max-width: 850px) {
-                    display: none;
-                }
-            }
-        }
-    }
     .image {
+        transition: all 350ms ease-in;
         position: relative;
         img {
                 filter: blur(0);
-                transition: filter 350ms ease-in-out;
+                transition: all 350ms ease-in-out;
             }
         .cont {
             position: absolute;
@@ -205,13 +192,13 @@ a {
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 350ms ease-in-out;
+            transition: all 350ms ease-in-out;
             .text {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 20px;
+                padding: 40px 20px;
                 text-align: center;
                 color: white;
                 h2 {
@@ -224,6 +211,37 @@ a {
             }
         }
     }
+    &:hover {
+        .image {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 350ms ease-in;
+            &:before {
+                display:block;
+                content:'';
+                position:absolute;
+                width:100%;
+                height:100%;
+
+                box-shadow:inset 10px 10px 16px 16px var(--pink);
+            } 
+            img {
+                filter: blur(10px);
+                overflow: hidden;
+                @media (max-width: 850px) {
+                    filter: none;
+                }
+            }
+            .cont {
+                opacity: 1;
+                @media (max-width: 850px) {
+                    display: none;
+                }
+            }
+        }
+    }
+    
 }
 `
 

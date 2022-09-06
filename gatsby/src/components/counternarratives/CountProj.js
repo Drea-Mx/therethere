@@ -41,22 +41,29 @@ const CountProjContainer = styled.section`
             flex-direction: column;
             justify-content: center;
             position: relative;
-            &:nth-child(3n - 2) {
+            &:nth-child(4n - 3) {
                 grid-column: 1/span 5;
                 grid-row: auto;
                 .overlay {
                     background-image: linear-gradient(rgba(241, 115, 56, .5), rgba(244, 8, 244, .5));
                 }
             }
-            &:nth-child(3n - 1) {
+            &:nth-child(4n - 2) {
                 grid-column: 6/span 10;
                 grid-row: auto;
                 .overlay {
                     background-image: linear-gradient(rgba(241, 115, 56, .5), rgba(244, 8, 244, .5));
                 }
             }
-            &:nth-child(3n) {
+            &:nth-child(4n - 1) {
                 grid-column: 2/span 8;
+                grid-row: auto;
+                .overlay {
+                    background-image: linear-gradient(rgba(241, 115, 56, .5), rgba(244, 8, 244, .5));
+                }
+            }
+            &:nth-child(4n) {
+                grid-column: 4/span 4;
                 grid-row: auto;
                 .overlay {
                     background-image: linear-gradient(rgba(241, 115, 56, .5), rgba(244, 8, 244, .5));

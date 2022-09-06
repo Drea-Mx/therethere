@@ -8,25 +8,34 @@ const Top = ({data}) => {
             <div className='iz item'>
                 <h1>{data.sanityAboutPage.title}</h1>
                 <div className='body'>
-                    <BlockContent
-                        blocks={data.sanityAboutPage._rawDescriptionAbout}
-                    />
+                    <div className='scroll'>
+                        <BlockContent
+                            blocks={data.sanityAboutPage._rawDescriptionAbout}
+                        />
+                    </div>
+                    <div className='bar'></div>
                 </div>
             </div>
             <div className='mid item' id='founding'>
                 <h2>{data.sanityAboutPage.titleFounding}</h2>
                 <div className='body'>
-                    <BlockContent
-                        blocks={data.sanityAboutPage._rawDescriptionFounding}
-                    />
+                    <div className='scroll'>
+                        <BlockContent
+                            blocks={data.sanityAboutPage._rawDescriptionFounding}
+                        />
+                    </div>
+                    <div className='bar'></div>
                 </div>
             </div>
             <div className='de item' id='allies'>
                 <h2>{data.sanityAboutPage.titleAllies}</h2>
                 <div className='body'>
-                    <BlockContent
-                        blocks={data.sanityAboutPage._rawDescriptionAllies}
-                    />
+                    <div className='scroll'>
+                        <BlockContent
+                            blocks={data.sanityAboutPage._rawDescriptionAllies}
+                        />
+                    </div>
+                    <div className='bar'></div>
                 </div>
             </div>
         </CountProjContainer>
@@ -69,8 +78,27 @@ const CountProjContainer = styled.section`
         text-transform: uppercase;
     }
     .body {
-        height: 300px;
-        overflow-y: scroll;
+        position: relative;
+        .scroll {
+            overflow-y: scroll;
+            height: 300px;
+            padding-bottom: 100px;
+        }
+        .bar {
+            position: absolute;
+            bottom:0px;  
+            left: 0;
+            z-index: 2;
+            height: 70px;
+            background-color: var(--black);
+            opacity: 1;
+            width: 100%;    
+            pointer-events: none; /* so the text is still selectable */
+            background: linear-gradient(rgba(22,22,22,0), rgba(22,22,22,1));
+            @media (max-width: 650px) {
+                bottom: 60px;
+            }
+        }
         
     }
 

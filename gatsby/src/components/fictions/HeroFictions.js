@@ -43,7 +43,7 @@ const HeroFictions = ({data}) => {
 }
 
 const ProjectsHomeCoontainer = styled.section`
-padding: 50px;
+padding: 20px;
 position: relative;
 z-index: 1;
 background-color: var(--white);
@@ -61,7 +61,7 @@ color: var(--pink);
         .floatL {
             position: fixed;
             top: 20px;
-            left: 50px;
+            left: 20px;
             @media (max-width: 850px) {
                 display: none;
             }
@@ -69,7 +69,7 @@ color: var(--pink);
         .floatR {
             position: fixed;
             top: 20px;
-            right: 50px;
+            right: 20px;
             @media (max-width: 850px) {
                 display: none;
             }
@@ -98,7 +98,7 @@ color: var(--pink);
             display: flex;
             position: fixed;
             top: 250px;
-            left: 50px;
+            left: 20px;
             @media (max-width: 850px) {
                 position: static;
                 margin-top: 50px;

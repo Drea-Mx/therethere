@@ -77,16 +77,19 @@ const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
                     </div>
                 </div>
                 <div className='iz'>
-                    <h1>{fiction.title}</h1>
-                    <div className='team'>
-                        <p>CREDITS:</p>
-                        <p>{fiction.credits}</p>
+                    <div className="scroll">
+                        <h1>{fiction.title}</h1>
+                        <div className='team'>
+                            <p>CREDITS:</p>
+                            <p>{fiction.credits}</p>
+                        </div>
+                        <div className='body'>
+                                <BlockContent
+                                    blocks={fiction._rawProjectDescription}
+                                />
+                        </div>
                     </div>
-                    <div className='body'>
-                        <BlockContent
-                            blocks={fiction._rawProjectDescription}
-                        />
-                    </div>
+                    <div className="bar"></div>
                 </div>
                 <div className='de'>
                     <div className='image'>
@@ -198,13 +201,16 @@ width: 100vw;
     }
     .iz {
         grid-column: 1/4;
-        overflow-x: scroll;
-        height: calc(100vh - 100px);
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
         padding-bottom: 50px;
+        position: relative;
         @media (max-width: 850px) {
             grid-column: 1/6;
+        }
+        .scroll {
+            overflow-x: scroll;
+            height: calc(100vh - 100px);
         }
         @media (max-width: 850px) {
             grid-column: 1/11;
@@ -251,10 +257,28 @@ width: 100vw;
             word-break: break-word;
         }
         .body {
+            padding-bottom: 100px;
+            
             p {
                 margin: 10px 0;
             }
         }
+        .bar {
+                position: absolute;
+                bottom: 30px;  
+                left: -100px;
+                z-index: 2;
+                height: 50px;
+                background-color: #fff;
+                opacity: 0.9;
+                filter: blur(15px);
+                width: 5000px;    
+                pointer-events: none; /* so the text is still selectable */
+                @media (max-width: 650px) {
+                    bottom: 60px;
+                    filter: blur(15px);
+                }
+            }
         
     }
     .de {
