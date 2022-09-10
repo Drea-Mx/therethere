@@ -94,8 +94,11 @@ const Blurr = () => {
 
     const [showModal, hideModal] = useSessionModal();
 
+    if (typeof window !== `undefined`) { // or typeof document !== 'undefined'
+        // your code that uses global objects here
+        document.cookie = "showedModal=showedModal; path=/";
+      }
 
-    document.cookie = "showedModal=showedModal; path=/";
 
 
 
