@@ -12,7 +12,7 @@ module.exports = {
     },
     author: `therethere`,
   },
-  plugins: ["gatsby-plugin-styled-components", "gatsby-plugin-transition-link", "gatsby-plugin-gatsby-cloud", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
+  plugins: ["gatsby-plugin-styled-components", `gatsby-plugin-transition-link`, "gatsby-plugin-gatsby-cloud", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/assets/images/favicon.png"
