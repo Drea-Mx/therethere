@@ -55,10 +55,10 @@ const ArchitecturesContainer = styled.section`
     .container {
         .project {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 70px;
             padding-left: 20px;
             .info {
-                margin-top: 50px;
+                margin-top: 10px;
                 .arriba {
                     padding-right: 50px;
                     display: flex;

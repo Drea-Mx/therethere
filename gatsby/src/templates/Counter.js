@@ -151,7 +151,7 @@ img {
         }
     }
     a.close {
-        position: absolute;
+        position: fixed;
         top: 50px;
         right: 50px;
         @media (max-width: 650px) {
@@ -232,7 +232,7 @@ img {
             }
             .share {
                 grid-row: 4/5;
-                position: absolute;
+                position: fixed;
                 bottom: 0px;
                 margin: 0;
                 padding: 0 20px ;

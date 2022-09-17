@@ -95,9 +95,6 @@ const CountProjContainer = styled.section`
             width: 100%;    
             pointer-events: none; /* so the text is still selectable */
             background: linear-gradient(rgba(22,22,22,0), rgba(22,22,22,1));
-            @media (max-width: 650px) {
-                bottom: 60px;
-            }
         }
         
     }

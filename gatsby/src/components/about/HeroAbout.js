@@ -93,9 +93,13 @@ color: var(--pink);
                 padding-right: 50px;
 
                 @media (max-width:850px) {
-                    width: 100%;
+                    padding-right: 0;
+                    width: 80%;
+                    margin: 0 auto;
                     position: absolute;
                     bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
                     text-align: center;
                     justify-self: center;
                 }

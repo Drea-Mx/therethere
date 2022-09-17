@@ -46,7 +46,8 @@ const HeroContainer = styled.nav`
     box-shadow: 1px -6px 43px 15px var(--pink);
     z-index: 2;
     @media (max-width: 680px) {
-        position: static;
+        position: fixed;
+        top: 0;
         height: 0;
     }
 
@@ -90,7 +91,7 @@ const HeroContainer = styled.nav`
                 z-index: 3;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: space-around;
                 padding: 50px 20px;
                 .logo {
                     filter: brightness(0) invert(1);
