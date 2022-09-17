@@ -6,6 +6,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import Parser from 'html-react-parser';
 import Layout from "../components/layout/layout";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 
 export const query = graphql`
@@ -17,6 +18,16 @@ export const query = graphql`
         vimeoId
         city
         year
+        thumbnail {
+            alt
+            asset {
+                gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: BLURRED
+                )
+            }
+        }
         seo {
             title
             description
@@ -32,6 +43,11 @@ export const query = graphql`
 
 const SingleCounterProject = ({ data: { counter }, pageContext}) => {
 
+
+    const bgGetDataImage = getImage(counter.thumbnail.asset)
+    const bgGetDataImageAlt = counter.thumbnail.alt
+
+
     const {next, prev} = pageContext
 
     const pathLink = typeof window !== 'undefined' ? window.location.href : '';
@@ -46,7 +62,7 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
 
 
         <SingleCountProjContainer className='project'>
-            <img src='/counterBG.png' alt="backgound Counter Narratives" />
+            <img className="bg" src='/counterBG.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
                 <AniLink to={`/counternarratives`} className='close' cover bg="#F408F4">
                     <img src='/Close.svg' alt='Close button' />
@@ -87,7 +103,19 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
                 </div>
                 <div className='de'>
                     <div className='player'>
-                        {Parser(video)}
+                        {counter.vimeoId ? 
+                            <div>
+                                {Parser(video)}
+                            </div>
+                            :
+                            <div className="image">
+                                <GatsbyImage
+                                    style={{ height: "100%", width: "100%" }}
+                                    image={bgGetDataImage}
+                                    alt={bgGetDataImageAlt}
+                                />
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -100,7 +128,7 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
 const SingleCountProjContainer = styled.div`
 height: 100vh;
 width: 100vw;
-img {
+img.bg {
     position: fixed;
     width: 100%;
 }
@@ -283,6 +311,9 @@ img {
             iframe {
                 width: 100%;
             }
+            .image {
+                    width: 70%; 
+                }
         }
     }
 }
