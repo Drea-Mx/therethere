@@ -230,6 +230,7 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
         </ArchitecturesContainer>
 
         <ArchitecturesContainerMovil>
+            <img className="fakeBg" src='/arch.png' alt="There there" />
             <div className="container">
                 <h1>{architecture.title}</h1>
                 <div className="about">
@@ -264,20 +265,27 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
 
 const ArchitecturesContainerMovil = styled.section`
     display: none;
-    background-color: rgba(246, 116, 246, 1);
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 2;
-    padding: 20px;
-    overflow-y: scroll;
+    .fakeBg {
+        position: absolute;
+        height: 100vh;
+        width: auto;
+    }
     .container {
+        background-color: #F408F4;
+        opacity: 0.8;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 2;
+        padding: 20px;
+        overflow-y: scroll;
         color: white;
         position: relative;
         h1 {
             font-size: 40px;
+            word-break: break-word;
         }
         .about {
             margin-top: 50px;
@@ -286,7 +294,7 @@ const ArchitecturesContainerMovil = styled.section`
                     position: absolute;
                     height: 50px;
                     width: 100%;
-                    background: linear-gradient(rgba(246, 116, 246, 0), rgba(246, 116, 246, 1));
+                    background: linear-gradient(to bottom, transparent, #F408F4);
                     bottom: 0;
                 }
             .texto {
@@ -363,7 +371,7 @@ const ArchitecturesContainer = styled.div`
     .arrows {
         position: absolute;
         top: 100px;
-        left: 50%;
+        left: 65%;
         bottom: 0;
         right: 0;
         z-index: 3;

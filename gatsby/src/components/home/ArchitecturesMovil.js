@@ -11,19 +11,23 @@ const ArchitecturesMovil = ({data}) => {
                     return (
                         <div className='project' key={_id}>
                             <div className='slider'>
-                                {sliderImages.map(({ _key, alt, asset }) => {
-                                            const bgGetDataSlide = getImage(asset)
-                                            const bgGetDataSlideAlt = alt
-                                    return (
-                                        <div className='image' key={_key}>
-                                            <GatsbyImage
-                                                style={{ height: "100%", width: "100%" }}
-                                                image={bgGetDataSlide}
-                                                alt={bgGetDataSlideAlt}
-                                            />
-                                        </div>
-                                    );
-                                })}
+                                <div className='bar'></div>
+                                <div className='container'>
+                                    {sliderImages.map(({ _key, alt, asset }) => {
+                                                const bgGetDataSlide = getImage(asset)
+                                                const bgGetDataSlideAlt = alt
+                                        return (
+                                            <div className='image' key={_key}>
+                                                <GatsbyImage
+                                                    style={{ height: "100%", width: "100%" }}
+                                                    image={bgGetDataSlide}
+                                                    alt={bgGetDataSlideAlt}
+                                                />
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                
                             </div>
                             <div className='info'>
                                 <div className='arriba'>
@@ -75,6 +79,7 @@ const ArchitecturesContainer = styled.section`
                         padding-right: 20px;
                         margin-bottom: 5px;
                         width: 90%;
+                        word-break: break-word;
                     }
                 }
                 .more {
@@ -85,9 +90,21 @@ const ArchitecturesContainer = styled.section`
                 }
             }
             .slider {
-                overflow-x: scroll;
-                overflow-y: hidden;
-                white-space:nowrap;
+                position: relative;
+                .container {
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    white-space:nowrap;
+                }
+                .bar {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 50px;
+                    background: linear-gradient(to right, transparent, #f9f9f9);
+                    z-index: 1;
+                }
                 &::-webkit-scrollbar {
                     display: none;
                 }

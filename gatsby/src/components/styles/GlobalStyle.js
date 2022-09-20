@@ -41,4 +41,8 @@ body::-webkit-scrollbar {
           font-size: 12px;
       }
     }
+
+    h1, h2, h3 {
+      word-break: break-word;
+    }
 `

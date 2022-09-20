@@ -130,14 +130,13 @@ width: 100vw;
     background: rgba(249, 249, 249, 0.6);
     backdrop-filter: blur(20px);
     @media (max-width: 650px) {
-        background: white;
         padding: 0;
     }
     .arrow {
         position: absolute;
         top: 100px;
         right: 0;
-        width: 50%;
+        width: 65%;
         height: 100%;
         display: flex;
         z-index: 1;
@@ -222,6 +221,7 @@ width: 100vw;
                 grid-row: 1/2;
                 padding: 20px 20px 10px;
                 margin-bottom: 0 !important;
+                word-break: break-word;
             }
             .body {
                 grid-row: 2/3;

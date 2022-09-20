@@ -68,12 +68,17 @@ color: var(--pink);
         width: 100%;
         .fixed {
             position: fixed;
-            bottom: 60px;
+            bottom: 50px;
+            padding: 20px;
             left: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
             z-index: 5;
+            background-color: var(--black);
+            @media (max-width:850px) {
+                    height: 75px;
+                }
             a {
                 text-transform: uppercase;
             }
@@ -81,9 +86,10 @@ color: var(--pink);
                 padding-left: 50px;
                 @media (max-width:850px) {
                     position: absolute;
-                    bottom: 0px;
+                    bottom: 10px;
                     width: 100%;
                     text-align: center;
+                    padding-left: 0;
                 }
                 a {
                     margin-right: 20px;
@@ -97,7 +103,7 @@ color: var(--pink);
                     width: 80%;
                     margin: 0 auto;
                     position: absolute;
-                    bottom: 20px;
+                    bottom: 40px;
                     left: 50%;
                     transform: translateX(-50%);
                     text-align: center;
@@ -105,6 +111,7 @@ color: var(--pink);
                 }
                 a {
                     margin-left: 20px;
+                    
                 }
             }
         }
