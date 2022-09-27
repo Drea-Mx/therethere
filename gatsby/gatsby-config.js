@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     siteUrl,
     title: `therethere`,
-    description: `WEBSITE COMING SOON`,
+    description: `ARCHITECTURE PRACTICE`,
     social: {
       twitter: `therethere`,
     },
