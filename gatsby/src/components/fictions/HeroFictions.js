@@ -126,7 +126,7 @@ color: var(--pink);
         .top {
             position: relative;
             margin: 0 auto;
-            width: 150px;
+            width: 250px;
             height: 50px;
             @media (max-width: 850px) {
                 margin-bottom: 100px;
@@ -135,27 +135,25 @@ color: var(--pink);
                 display: none;
             }
             .overlay {
-                text-align: center;
                 margin: 0 auto;
-                width: 100px;
-                background-color: pink;
+                width: 220px;
                 background-image: linear-gradient(rgba(244, 8, 244, .5), rgba(244, 8, 244, .5));
-                filter: blur(15px);
-                height: 50px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                border-radius: 25px;
+                filter: blur(20px);
+                height: 80px;
+                border-radius: 40px;
             }
             a {
                 position: absolute;
+                display: block;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-align: center;
-                width: 180px;
+                margin: 15px auto 0;
+                width: 200px;
                 transition: color 150ms ease-in-out;
                 text-transform: uppercase;
+                font-size: 30px;
                 &:hover {
                     color: #F9F9F9;
                 }

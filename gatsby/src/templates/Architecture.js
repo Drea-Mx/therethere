@@ -353,6 +353,7 @@ const ArchitecturesContainerMovil = styled.section`
 const ArchitecturesContainer = styled.div`
 .open {
     top: 0 !important;
+    overflow: scroll;
 }
 .window {
     position: fixed;

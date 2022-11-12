@@ -201,7 +201,9 @@ a {
                 padding: 40px 20px;
                 text-align: center;
                 color: white;
+                font-size: 18px;
                 h2 {
+                    font-size: 30px;
                     text-transform: uppercase;
                 }
                 div {

@@ -55,7 +55,7 @@ const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
 
 
         <SingleFictionProjContainer className='project'>
-            <img src='/bgFictions.png' alt="backgound Counter Narratives" />
+            <img className="fake" src='/bgFictions.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
                 <AniLink to={`/fictions`} className='close' cover bg="#F408F4">
                     <img src='/xPink.png' alt='Close button' />
@@ -112,6 +112,9 @@ height: 100vh;
 width: 100vw;
 .clicked {
     top: 0 !important;
+}
+.fake {
+    position: fixed;
 }
 .overlayx {
     position: fixed;

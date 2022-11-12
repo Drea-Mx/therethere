@@ -48,7 +48,7 @@ const ArchitecturesContainer = styled.section`
     .container {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
-        margin-bottom: 200px;
+        margin-bottom: 0px;
         @media (max-width: 950px) {
             margin-bottom: 100px;
         }

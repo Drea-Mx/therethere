@@ -197,6 +197,10 @@ a {
             color: white;
             h2 {
                 text-transform: uppercase;
+                font-size: 30px;
+            }
+            p {
+                font-size: 18px;
             }
         }
     }
