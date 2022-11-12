@@ -18,14 +18,15 @@ const Architectures = ({data}) => {
                                         image={bgGetDataImage}
                                         alt={bgGetDataImageAlt}
                                     />
-                                </div>
-                                <div className='cont'>
-                                    <div className='overlay'></div>
-                                    <div className='text'>
-                                        <h2>{title}</h2>
-                                        <p>{thumbnailMetadescription}</p>
+                                    <div className='cont'>
+                                        <div className='overlay'></div>
+                                        <div className='text'>
+                                            <h2>{title}</h2>
+                                            <p>{thumbnailMetadescription}</p>
+                                        </div>
                                     </div>
                                 </div>
+                                
                             </Link>
                         </div>
                     );
@@ -89,13 +90,14 @@ const ArchitecturesContainer = styled.section`
                         justify-content: space-between;
                         align-items: center;
                         height: 100%;
+                        text-align: center;
                         h2 {
-                            font-size: 1.2rem;
+                            font-size: 30px;
                             color: white;
                             text-transform: uppercase;
                         }
                         p {
-                            font-size: 0.8rem;
+                            font-size: 18px;
                             color: white;
                         }
                     }

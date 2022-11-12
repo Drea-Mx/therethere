@@ -5,7 +5,7 @@ body::-webkit-scrollbar {
             display: none;
         }
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
