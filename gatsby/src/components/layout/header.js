@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Header = ({black}) => {
 
@@ -201,10 +202,10 @@ const HeroContainer = styled.nav`
                 
             </div>
             <ul className="bot">
-                <li><Link partiallyActive={false} to='/' activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
-                <li><Link partiallyActive={true} to='/counternarratives' activeStyle={{color: "#000000" }}>COUNTERNARRATIVES</Link></li>
-                <li><Link partiallyActive={true} to='/fictions' activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
-                <li><Link partiallyActive={true} to='/about' activeStyle={{color: "#000000" }}>ABOUT</Link></li>
+                <li><AniLink fade top="entry" bg="#FFF" partiallyActive={false} to='/' activeStyle={{color: "#000000" }} >ARCHITECTURES</AniLink></li>
+                <li><AniLink  fade top="entry" bg="#FFF" partiallyActive={true} to='/counternarratives' activeStyle={{color: "#000000" }}>COUNTERNARRATIVES</AniLink></li>
+                <li><AniLink  fade top="entry" bg="#FFF" partiallyActive={true} to='/fictions' activeStyle={{color: "#000000" }}>FICTIONS</AniLink></li>
+                <li><AniLink fade top="entry" bg="#FFF" partiallyActive={true} to='/about' activeStyle={{color: "#000000" }} >ABOUT</AniLink></li>
             </ul>
         </HeroContainer>
     )

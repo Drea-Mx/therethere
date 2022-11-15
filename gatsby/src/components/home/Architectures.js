@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Architectures = ({data}) => {
     return(
@@ -12,7 +12,7 @@ const Architectures = ({data}) => {
                             const bgGetDataImageAlt = thumbnail.alt
                     return (
                         <div className='project' key={_id}>
-                            <Link to={`/${slug.current}`}>
+                            <AniLink fade top="entry" bg="#FFF" to={`/${slug.current}`}>
                                 <div className='image'>
                                     <GatsbyImage
                                         image={bgGetDataImage}
@@ -27,7 +27,7 @@ const Architectures = ({data}) => {
                                     </div>
                                 </div>
                                 
-                            </Link>
+                            </AniLink>
                         </div>
                     );
                 })}

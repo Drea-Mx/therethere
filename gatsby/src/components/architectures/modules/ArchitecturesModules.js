@@ -31,7 +31,7 @@ const ArchitectureModules = ({ architectureModule, props }) => {
 };
 
 const ArchitectureModulesWrapper = styled.div`
-  margin-top: 400px;
+  margin-top: 650px;
   @media (max-width: 850px) {
     margin-top: 50px;
   }

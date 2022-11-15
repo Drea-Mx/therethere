@@ -411,7 +411,7 @@ const ArchitecturesContainer = styled.div`
         align-items: baseline;
         text-align: left;
         .top {
-            grid-column: 1/7;
+            grid-column: 1/11;
             grid-row: 1/2;
             margin-top: 50px;
             margin-bottom: 50PX;
@@ -425,6 +425,7 @@ const ArchitecturesContainer = styled.div`
         .about {
             grid-row: 2/3;
             grid-column: 1/2;
+            align-self: flex-start;
             p {
                 font-size: 30px;
             }
@@ -434,6 +435,7 @@ const ArchitecturesContainer = styled.div`
             grid-row: 2/3;
             position: relative;
             overflow: hidden;
+            align-self: flex-start;
             .scroll {
                 height: 50vh;
                 overflow: scroll;
@@ -461,6 +463,8 @@ const ArchitecturesContainer = styled.div`
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 20px;
+            align-self: flex-start;
+            padding-top: 8px;
             p {
                 text-transform: uppercase;
             }
@@ -512,7 +516,7 @@ const ArchitecturesContainer = styled.div`
         .title {
             display: grid;
             position: fixed;
-            top: 250px;
+            top: 350px;
             left: 50px;
             width: calc(100% - 100px);
             grid-template-columns: repeat(10, 1fr);

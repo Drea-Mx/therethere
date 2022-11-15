@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const ArchitecturesMovil = ({data}) => {
     return(
@@ -38,7 +38,7 @@ const ArchitecturesMovil = ({data}) => {
                                     <h2>{title}</h2>
                                 </div>
                                 <div className='more'>
-                                    <Link to={`/${slug.current}`}>+ Info</Link>
+                                    <AniLink fade top="entry" bg="#FFF" to={`/${slug.current}`}>+ Info</AniLink>
                                 </div>
                             </div>
                         </div>
