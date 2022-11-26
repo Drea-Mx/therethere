@@ -253,9 +253,9 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
                     })}
                 </div>
                 <div className="ops"></div>
-                <Link to="/" className="closeButton">
+                <AniLink to='/' className='closeButton' cover bg="#F408F4" direction="down">
                     <img className="close" src='/Close.svg' alt='Close button' />
-                </Link>
+                </AniLink>
             </div>
         </ArchitecturesContainerMovil>
       </Layout>
@@ -282,10 +282,11 @@ const ArchitecturesContainerMovil = styled.section`
         padding: 20px;
         overflow-y: scroll;
         color: white;
-        position: relative;
+        position: fixed;
         h1 {
             font-size: 40px;
             word-break: break-word;
+            text-transform: uppercase;
         }
         .about {
             margin-top: 50px;

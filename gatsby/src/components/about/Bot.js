@@ -82,8 +82,14 @@ const CountProjContainer = styled.section`
                     margin-bottom: 15px;
                     padding: 0 20px !important;
                 }
+                &:hover {
+                    h2 {
+                        color: rgba(255, 135, 255, 1);                        
+                    }
+                    }
                 h2 {
                     font-size: 1.5rem;
+                    
                 }
             }
         }

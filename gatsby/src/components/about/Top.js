@@ -83,6 +83,10 @@ const CountProjContainer = styled.section`
             overflow-y: scroll;
             height: 300px;
             padding-bottom: 100px;
+            p {
+                font-size: 16px;
+                line-height: 26px;
+            }
         }
         .bar {
             position: absolute;

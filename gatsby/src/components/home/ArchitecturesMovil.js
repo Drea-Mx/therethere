@@ -38,7 +38,12 @@ const ArchitecturesMovil = ({data}) => {
                                     <h2>{title}</h2>
                                 </div>
                                 <div className='more'>
-                                    <AniLink fade top="entry" bg="#FFF" to={`/${slug.current}`}>+ Info</AniLink>
+                                    <AniLink 
+                                        cover 
+                                        bg="#F408F4"
+                                        direction="up" to={`/${slug.current}`}>
+                                            + Info
+                                    </AniLink>
                                 </div>
                             </div>
                         </div>
@@ -57,6 +62,7 @@ const ArchitecturesContainer = styled.section`
         display: block;
     }
     .container {
+        padding-bottom: 50px;
         .project {
             position: relative;
             margin-bottom: 70px;

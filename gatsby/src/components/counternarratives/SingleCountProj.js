@@ -12,6 +12,7 @@ const SingleCountProj = ({ node }) => {
             <AniLink 
                 to={`/counternarratives/${node.slug.current}`}
                 cover bg="#F408F4"
+                direction="up"
                 >
                 <div className='image'>
                     <GatsbyImage
@@ -155,6 +156,8 @@ const SingleCountProjContainer = styled.div`
 }
 a {
     transition: all 350ms ease-in;
+    display: block;
+    height: 100%;
     .mov {
         display: none;
         @media (max-width: 850px) {
@@ -172,13 +175,15 @@ a {
                 text-transform: uppercase;
             }
             p.inff {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+                text-transform: uppercase;
             }
         }
     }
     .image {
         transition: all 350ms ease-in;
         position: relative;
+        height: 100%;
         img {
                 filter: blur(0);
                 transition: all 350ms ease-in-out;

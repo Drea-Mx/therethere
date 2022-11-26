@@ -57,7 +57,7 @@ const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
         <SingleFictionProjContainer className='project'>
             <img className="fake" src='/bgFictions.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
-                <AniLink to={`/fictions`} className='close' cover bg="#F408F4">
+                <AniLink to={`/fictions`} className='close' cover bg="#F408F4" direction="down">
                     <img src='/xPink.png' alt='Close button' />
                 </AniLink>
                 <div className="arrow">
@@ -225,6 +225,7 @@ width: 100vw;
                 padding: 20px 20px 10px;
                 margin-bottom: 0 !important;
                 word-break: break-word;
+                text-transform: uppercase;
             }
             .body {
                 grid-row: 2/3;
@@ -258,6 +259,7 @@ width: 100vw;
             margin-bottom: 20px;
             font-size: 2.5rem;
             word-break: break-word;
+            text-transform: uppercase;
         }
         .body {
             padding-bottom: 100px;

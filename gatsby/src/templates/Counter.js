@@ -55,7 +55,7 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
     const {next, prev} = pageContext
 
     const pathLink = typeof window !== 'undefined' ? window.location.href : '';
-    const video = `<iframe src="https://player.vimeo.com/video/${counter.vimeoId}?h=58c4a2b2c3" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+    const video = `<iframe src="https://player.vimeo.com/video/${counter.vimeoId}?h=58c4a2b2c3" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
 
 
     return(
@@ -68,21 +68,21 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
         <SingleCountProjContainer className='project'>
             <img className="bg" src='/counterBG.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
-                <AniLink to={`/counternarratives`} className='close' cover bg="#F9F9F9">
+                <AniLink to={`/counternarratives`} className='close' cover bg="#F408F4" direction="down">
                     <img src='/Close.svg' alt='Close button' />
                 </AniLink>
 
                 <div className="arrow">
                     <div className='back' >
                         {prev &&
-                            <AniLink to={`/counternarratives/${prev.slug.current}`} direction="right" className='back' cover bg="#F9F9F9">
+                            <AniLink to={`/counternarratives/${prev.slug.current}`} direction="right" className='back' cover bg="#F408F4">
                                 <img src='/back.png' alt='Back button' />
                             </AniLink>
                         }
                     </div>
                     <div className='next'>
                         {next &&
-                            <AniLink to={`/counternarratives/${next.slug.current}`} direction="left" className='next' cover bg="#F9F9F9">
+                            <AniLink to={`/counternarratives/${next.slug.current}`} direction="left" className='next' cover bg="#F408F4">
                                 <img src='/Next.png' alt='Next button' />
                             </AniLink>
                         }
@@ -110,10 +110,9 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
                         </div>
 
                 </div>
-                <div className='de'>
-                    <div className='player'>
+                <div className='player'>
                         {counter.vimeoId ? 
-                            <div>
+                            <div className="video">
                                 {Parser(video)}
                             </div>
                             :
@@ -126,7 +125,6 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
                             </div>
                         }
                     </div>
-                </div>
             </div>
         </SingleCountProjContainer>
       </Layout>
@@ -216,32 +214,33 @@ img.bg {
         top: 50px;
         right: 50px;
         @media (max-width: 650px) {
-            right: 30px;
-            bottom: 25px;
+            right: 50px;
+            bottom: 45px;
             top: auto;
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             z-index: 6;
         }
         img {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
         }
     }
     .iz {
-        padding: 50px 0 50px 50px;
+        padding: 95px 0 50px 50px;
         grid-column: 1/4;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
         padding-bottom: 50px;
         position: relative;
         .bar {
+            display: none;
             position: absolute;
             bottom: 25px;  
             left: -100px;
             z-index: 2;
             height: 50px;
-            background-color: #F408F4;
+            background-color: #F54BF5;
             opacity: 1;
             filter: blur(20px);
             width: 5000px;    
@@ -266,6 +265,7 @@ img.bg {
                 padding: 20px 20px 10px;
                 margin-bottom: 0 !important;
                 word-break: break-word;
+                text-transform: uppercase;
             }
             .body {
                 grid-row: 2/3;
@@ -293,8 +293,8 @@ img.bg {
             .share {
                 grid-row: 4/5;
                 position: fixed;
-                bottom: 0px;
-                margin: 0;
+                bottom: 40px;
+                margin: 0 !important;
                 padding: 0 20px ;
             }
         }
@@ -324,7 +324,7 @@ img.bg {
             }
             .scroll {
                 overflow-x: scroll;
-                height: calc(75vh);
+                height: calc(75vh - 155px);
             }
             p {
                 margin: 10px 0;
@@ -332,28 +332,36 @@ img.bg {
         }
         
     }
-    .de {
+    .player {
         grid-column: 4/11;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh;
+        align-self: baseline;
+        margin-top: 95px;
+        z-index: 2;
+        text-align: center;
+        
         @media (max-width: 850px) {
             grid-column: 6/11;
         }
         @media (max-width: 650px) {
             display: none;
         }
-        .player {
-            padding: 0 50px;
-            width: 100%;
+        .video {
+            position: relative;
+            padding:56.25% 50px 0 50px;
             iframe {
-                width: 100%;
+                width: 90% !important;
+                margin-left: 50px;
             }
-            .image {
-                    width: 70%; 
-                }
         }
+
+            
+            .image {
+                height: 85vh;
+                width: 90%;
+                margin: 0 auto;
+                padding: 20px; 
+            }
+        
     }
 }
 a {
@@ -369,6 +377,7 @@ a {
     }
     .image {
         position: relative;
+        
         img {
                 filter: blur(0);
                 transition: filter 350ms ease-in-out;

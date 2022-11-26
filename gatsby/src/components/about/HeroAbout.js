@@ -29,17 +29,17 @@ const HeroAbout = ({data}) => {
                 <div className='fixed'>
                     <div className='lef'>
                         <a href={`mailto:${data.sanitySettingsPage.email}`}>E-Mail</a>
-                        <a download href={data.sanitySettingsPage.downloadsCV.asset.url}>Download CV</a>
+                        <a download rel="noreferrer" target='_blank' href={data.sanitySettingsPage.downloadsCV.asset.url}>Download CV</a>
                         <a href={data.sanitySettingsPage.vimeo} rel="noreferrer" target='_blank' >Vimeo</a>
                         <a href={data.sanitySettingsPage.instagramUrl} rel="noreferrer" target='_blank' >Instagram</a>
                     </div>
                     <div className='rig'>
                         
-                        <Link to='/about#top'>About</Link>
-                        <Link to='/about#founding'>FOUNDING PRINCIPAL</Link>
-                        <Link to='/about#allies'>ALLIES</Link>
-                        <Link to='/about#awards'>Awards</Link>
-                        <Link to='/about#news'>News</Link>
+                        <a href='#top'>About</a>
+                        <a href='#top'>PRINCIPAL</a>
+                        <a href='#top'>ALLIES</a>
+                        <a href='#founding'>Awards</a>
+                        <a href='#founding'>News</a>
                     </div>
                 </div>
                 <Top data={data} />
@@ -216,6 +216,7 @@ color: var(--pink);
                 &:hover {
                     color: #F9F9F9;
                 }
+                
             }
         }
     }

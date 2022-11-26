@@ -14,6 +14,7 @@ const SingleFictionsProj = ({ node }) => {
             <AniLink 
                 to={`/fictions/${node.slug.current}`}
                 cover bg="#F408F4"
+                direction="up"
                 >
                 <div className='image'>
                     <GatsbyImage
@@ -179,7 +180,7 @@ a {
             bottom: 0;
             right: 0;
             background: rgba(247, 129, 247, 1);
-            filter: blur(10px);
+            filter: blur(7px);
             transform: scale(1.2);
         }
         .cont {

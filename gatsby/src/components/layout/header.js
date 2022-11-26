@@ -101,8 +101,8 @@ const HeroContainer = styled.nav`
                 }
                 .links {
                     li {
-                        margin-bottom: 25px;
-                        margin-top: 25px;
+                        margin-bottom: 55px;
+                        margin-top: 55px;
                         &:nth-child(2) {
                             text-align: right;
                             width: 250px;
