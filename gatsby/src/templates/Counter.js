@@ -234,7 +234,6 @@ img.bg {
         padding-bottom: 50px;
         position: relative;
         .bar {
-            display: none;
             position: absolute;
             bottom: 25px;  
             left: -100px;
@@ -246,6 +245,7 @@ img.bg {
             width: 5000px;    
             pointer-events: none; /* so the text is still selectable */
             @media (max-width: 650px) {
+                display: none;
                 bottom: 60px;
                 filter: blur(15px);
             }
@@ -270,7 +270,8 @@ img.bg {
             .body {
                 grid-row: 2/3;
                 overflow-y: scroll;
-                padding: 20px 20px 0px;
+                margin-top: 0 !important;
+                padding: 0px 20px 0px;
                 position: relative;
                 &::-webkit-scrollbar {
                     display: none;
@@ -325,6 +326,9 @@ img.bg {
             .scroll {
                 overflow-x: scroll;
                 height: calc(75vh - 155px);
+                @media (max-width: 650px) {
+                    height: calc(65vh - 155px);
+                }
             }
             p {
                 margin: 10px 0;
