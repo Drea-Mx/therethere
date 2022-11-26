@@ -267,8 +267,8 @@ const ArchitecturesContainerMovil = styled.section`
     display: none;
     .fakeBg {
         position: absolute;
-        height: 100vh;
-        width: -webkit-fill-available;
+        height: auto;
+        width: 100%
     }
     .container {
         background-color: #F408F4;
