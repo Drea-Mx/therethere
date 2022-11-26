@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/layout/layout";
 import Seo from "../components/layout/seo";
 import styled from "styled-components";
@@ -268,7 +268,7 @@ const ArchitecturesContainerMovil = styled.section`
     .fakeBg {
         position: absolute;
         height: 100vh;
-        width: auto;
+        width: -webkit-fill-available;
     }
     .container {
         background-color: #F408F4;
@@ -347,6 +347,7 @@ const ArchitecturesContainerMovil = styled.section`
     }
     @media (max-width: 680px) {
         display: block;
+        height: -webkit-fill-available;
     }
 `
 

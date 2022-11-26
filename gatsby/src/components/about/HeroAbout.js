@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Top from './Top'
 import Bot from './Bot'
-import { Link } from 'gatsby'
 
 const HeroAbout = ({data}) => {
 
