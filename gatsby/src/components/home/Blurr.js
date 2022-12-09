@@ -10,12 +10,12 @@ const useSessionModal = () => {
     const [showModal, setShowModal] = useState(false);
     const hideModal = () => {
       const modalKey = "modalSession";
-      localStorage.setItem(modalKey, session);
+      sessionStorage.setItem(modalKey, session);
       setShowModal(false);
     };
     useEffect(() => {
       const modalKey = "modalSession";
-      const modalSession = localStorage.getItem(modalKey);
+      const modalSession = sessionStorage.getItem(modalKey);
       setShowModal(modalSession !== session);
     },[]);
     return [showModal, hideModal];

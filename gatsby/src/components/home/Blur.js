@@ -1,12 +1,67 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlockContent from '@sanity/block-content-to-react';
+import { useStaticQuery, graphql } from "gatsby";
+
+const Blurr = ({ setWindowBlur}) => {
+
+    const data = useStaticQuery(graphql`
+    query {
+        sanitySettingsPage {
+            headerTitle1
+            headerTitle2
+            logos {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: BLURRED
+                    )
+                }
+            }
+            logoSansSerif {
+                alt
+                asset {
+                    gatsbyImageData(
+                    layout: FULL_WIDTH
+                    outputPixelDensities: 1.5
+                    placeholder: BLURRED
+                    )
+                }
+            }
+            logoSerif {
+            alt
+            asset {
+                gatsbyImageData(
+                layout: FULL_WIDTH
+                outputPixelDensities: 1.5
+                placeholder: BLURRED
+                )
+            }
+            }
+        }
+        sanityHomePage {
+            _rawDescriptionHome
+            title
+            subTitle
+            seo {
+                title
+                description
+                image {
+                    asset {
+                    url
+                    }
+                }
+            }
+        }
+    }
+    `);
+    
 
 
 
-
-const Blur = ({data}) => {
 
     const bgGetDataImage1 = getImage(data.sanitySettingsPage.logoSansSerif.asset)
     const bgGetDataImageAlt1 = data.sanitySettingsPage.logoSansSerif.alt
@@ -15,23 +70,30 @@ const Blur = ({data}) => {
     const bgGetDataImageAlt2 = data.sanitySettingsPage.logoSerif.alt
 
 
-    const [clickLogo, setClickLogo] = useState(1);
+    const [clickLogo, setClickLogo] = useState(false);
 
-    const [clickArrow, setClickArrow] = useState(false);
+    if (typeof window !== `undefined`) { // or typeof document !== 'undefined'
+        // your code that uses global objects here
+        document.cookie = "showedModal=showedModal; path=/";
+      }
+
+
+
 
 
     return(
-        <BlurContainer>
-            <div className={clickArrow ? 'top container' : 'container'}>
+        <BlurContainer >
+
+            <div className={setWindowBlur === 'true' ? 'container' : 'top container'}>
                 <div className='overlay'></div>
                 <div className='text'>
                     <BlockContent
                         blocks={data.sanityHomePage._rawDescriptionHome}
                     />
                 </div>
-                <div className={clickLogo === 1 ? 'logos1 element' : 'active logos1 element'}>
+                <div className={clickLogo ? 'logos1 element active' : 'logos1 element'}>
                     <button className='image1 image'
-                        onClick={() => setClickLogo(clickLogo + 1)}
+                        onClick={() => setClickLogo(!clickLogo)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
@@ -40,7 +102,7 @@ const Blur = ({data}) => {
                         />
                     </button>
                     <button className='image2 image'
-                        onClick={() => setClickLogo(clickLogo - 1)}
+                        onClick={() => setClickLogo(!clickLogo)}
                     >
                         <GatsbyImage
                             style={{ height: "100%", width: "100%" }}
@@ -49,12 +111,13 @@ const Blur = ({data}) => {
                         />
                     </button>
                     <button className="arrow"
-                        onClick={() => setClickArrow(!clickArrow)}
+                        onClick={() => setWindowBlur('true')}
                     >
                         <img src='/arrowDown.svg' alt='Arrow Down Button' />
                     </button>
                 </div>
             </div>
+
         </BlurContainer>
     )
 }
@@ -135,36 +198,34 @@ const BlurContainer = styled.section`
             backdrop-filter: blur(10px);
         }
     }
+   
+        
+        /* .logos1 ~ div {
+
+        } */
     .logos1.active {
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 3;
         .image1 {
             width: 30%;
             position: absolute;
-            top: auto;
-            left: auto;
-
             right: 40px;
             bottom: 80px;
+            top: auto;
+            left: auto;
             @media (max-width: 680px) {
                 width: 65%;
-                left: 50%;
-                bottom: 150px;
+                right: auto !important;
+                left: 50% !important;
                 transform: translateX(-50%);
+                bottom: 150px;
             }
         }
         .image2 {
             width: 30%;
             position: absolute;
-            right: auto;
-            bottom: auto;
-
             top: 80px;
             left: 40px;
+            right: auto;
+            bottom: auto;
             @media (max-width: 680px) {
                 width: 65%;
                 left: 50%;
@@ -172,10 +233,6 @@ const BlurContainer = styled.section`
             }
         }
     }
-        
-        /* .logos1 ~ div {
-
-        } */
     .logos1 {
         position: absolute;
         bottom: 0;
@@ -212,4 +269,4 @@ const BlurContainer = styled.section`
 `
 
 
-export default Blur
+export default Blurr

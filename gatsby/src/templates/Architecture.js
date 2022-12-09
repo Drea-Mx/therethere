@@ -404,7 +404,7 @@ const ArchitecturesContainer = styled.div`
         top: 50px;
         right: 50px;
         img {
-            width: 25px;
+            width: 20px;
         }
     }
     .cont {
@@ -419,8 +419,9 @@ const ArchitecturesContainer = styled.div`
             grid-row: 1/2;
             margin-top: 50px;
             margin-bottom: 50PX;
+            grid-column: 1/7;
             h2 {
-                font-size: 5vw;
+                font-size: 70px;
                 color: white;
                 text-transform: uppercase;
                 line-height: 0.9;
@@ -601,6 +602,7 @@ const ArchitecturesContainer = styled.div`
                 text-align: center;
                 width: 180px;
                 transition: color 150ms ease-in-out;
+                text-transform: uppercase;
                 &:hover {
                     color: #F9F9F9;
                 }

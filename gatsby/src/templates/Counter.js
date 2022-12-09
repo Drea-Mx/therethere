@@ -88,43 +88,48 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
                         }
                     </div>
                 </div>
-                <div className='iz'>
-                    <div className="bar"></div>
+                <div className="grid">
                         <h1>{counter.title}</h1>
-                        <div className='share'>
-                            <p>Share:</p>
-                            <a target='_blank' rel="noreferrer" href={`http://twitter.com/share?text=${counter.title}&url=${pathLink}`}>Twitter</a>
-                            <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/dialog/feed?&app_id=440357587784784&link=${pathLink}&display=popup&quote=${counter.title}`} >Facebook</a>
-                            <a target='_blank' rel="noreferrer" href={`mailto:?subject=${counter.title}&body=Check out this website %0D %0D ${pathLink} %0D%0D`} >Mail</a>
-                        </div>
-                        <div className='team'>
-                            <p>TEAM:</p>
-                            <p>{counter.theTeam}</p>
-                        </div>
-                        <div className='body'>
-                            <div className="scroll">
-                                <BlockContent
-                                    blocks={counter._rawProjectDescription}
-                                />
+                        <div className="textoooo">
+                            <div className="bar"></div>
+                            <div className='share'>
+                                <p>Share:</p>
+                                <a target='_blank' rel="noreferrer" href={`http://twitter.com/share?text=${counter.title}&url=${pathLink}`}>Twitter</a>
+                                <a target='_blank' rel="noreferrer" href={`https://www.facebook.com/dialog/feed?&app_id=440357587784784&link=${pathLink}&display=popup&quote=${counter.title}`} >Facebook</a>
+                                <a target='_blank' rel="noreferrer" href={`mailto:?subject=${counter.title}&body=Check out this website %0D %0D ${pathLink} %0D%0D`} >Mail</a>
+                            </div>
+                            <div className='team'>
+                                <p>TEAM:</p>
+                                <p>{counter.theTeam}</p>
+                            </div>
+                            <div className='body'>
+                                <div className="scroll">
+                                    <BlockContent
+                                        blocks={counter._rawProjectDescription}
+                                    />
+                                </div>
                             </div>
                         </div>
-
-                </div>
-                <div className='player'>
                         {counter.vimeoId ? 
-                            <div className="video">
-                                {Parser(video)}
+
+                            <div className='playerVideo'>
+                                    <div className="video">
+                                        {Parser(video)}
+                                    </div>
                             </div>
                             :
-                            <div className="image">
-                                <GatsbyImage
-                                    style={{ height: "100%", width: "100%" }}
-                                    image={bgGetDataImage}
-                                    alt={bgGetDataImageAlt}
-                                />
+                            <div className='playerImage'>
+
+                                <div className="image">
+                                    <GatsbyImage
+                                        style={{ height: "100%", width: "100%" }}
+                                        image={bgGetDataImage}
+                                        alt={bgGetDataImageAlt}
+                                    />
+                                </div>
                             </div>
                         }
-                    </div>
+                </div>
             </div>
         </SingleCountProjContainer>
       </Layout>
@@ -152,7 +157,7 @@ img.bg {
     height: 100vh;
     transition: top 350ms ease-in-out;
     z-index: 4;
-    display: grid;
+    display: block;
     grid-template-columns: repeat(10, 1fr);
     color: white;
     background: linear-gradient(180deg, rgba(241, 115, 56, 0.7) 80.48%, rgba(243, 13, 243, 0.681771) 100%);
@@ -222,34 +227,95 @@ img.bg {
             z-index: 6;
         }
         img {
-            width: 40px;
-            height: 40px;
+            width: 20px;
+            height: 20px;
         }
     }
-    .iz {
-        padding: 95px 0 50px 50px;
-        grid-column: 1/4;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        padding-bottom: 50px;
-        position: relative;
-        .bar {
-            position: absolute;
-            bottom: 25px;  
-            left: -100px;
-            z-index: 2;
-            height: 50px;
-            background-color: #F54BF5;
-            opacity: 1;
-            filter: blur(20px);
-            width: 5000px;    
-            pointer-events: none; /* so the text is still selectable */
-            @media (max-width: 650px) {
-                display: none;
-                bottom: 60px;
-                filter: blur(15px);
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        h1 {
+            grid-column: 1/5;
+            padding: 45px 0 0 50px;
+            @media (max-width: 850px) {
+                grid-column: 1/6;
             }
         }
+        .playerVideo {
+            grid-column: 4/11;
+            align-self: baseline;
+            margin-top: 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            @media (max-width: 850px) {
+                grid-column: 6/11;
+            }
+            @media (max-width: 650px) {
+                display: none;
+            }
+            .video {
+                position: relative;
+                padding:56.25% 50px 0 50px;
+                iframe {
+                    width: 90% !important;
+                    margin-left: 50px;
+                }
+            }   
+        }
+        .playerImage {
+            grid-column: 4/11;
+            grid-row: 2/3;
+            align-self: baseline;
+            margin-top: 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-height: 80vh;
+            height: 100%;
+            padding: 0 50px 50px 50px;
+            overflow: hidden;
+            @media (max-width: 850px) {
+                grid-column: 6/11;
+            }
+            @media (max-width: 650px) {
+                display: none;
+            }
+            .image {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .textoooo {
+            padding: 0 0 50px 50px;
+            grid-column: 1/4;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+            position: relative;
+            @media (max-width: 850px) {
+                grid-column: 1/6;
+                padding-left: 0 ;
+            }
+            .bar {
+                position: absolute;
+                bottom: 25px;  
+                left: -100px;
+                z-index: 2;
+                height: 50px;
+                background-color: #F54BF5;
+                opacity: 1;
+                filter: blur(20px);
+                width: 5000px;    
+                pointer-events: none; /* so the text is still selectable */
+                @media (max-width: 650px) {
+                    display: none;
+                    bottom: 60px;
+                    filter: blur(15px);
+                }
+            }
+            
+        }
+        
         @media (max-width: 850px) {
             grid-column: 1/6;
             padding: 20px;
@@ -336,37 +402,8 @@ img.bg {
         }
         
     }
-    .player {
-        grid-column: 4/11;
-        align-self: baseline;
-        margin-top: 95px;
-        z-index: 2;
-        text-align: center;
-        
-        @media (max-width: 850px) {
-            grid-column: 6/11;
-        }
-        @media (max-width: 650px) {
-            display: none;
-        }
-        .video {
-            position: relative;
-            padding:56.25% 50px 0 50px;
-            iframe {
-                width: 90% !important;
-                margin-left: 50px;
-            }
-        }
 
-            
-            .image {
-                height: 85vh;
-                width: 90%;
-                margin: 0 auto;
-                padding: 20px; 
-            }
-        
-    }
+
 }
 a {
     &:hover {

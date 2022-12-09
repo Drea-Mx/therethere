@@ -42,6 +42,9 @@ export const data = graphql`
         }
         }
     }
+    sanityHomePage {
+        _rawDescriptionHome
+    }
     sanityFictionsPage {
         title
         descriptionFictions

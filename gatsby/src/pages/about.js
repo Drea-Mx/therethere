@@ -51,6 +51,9 @@ export const data = graphql`
         }
         
     }
+    sanityHomePage {
+        _rawDescriptionHome
+    }
     sanityAboutPage {
         title
         _rawDescriptionAbout
