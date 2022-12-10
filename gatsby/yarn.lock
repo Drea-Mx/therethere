@@ -5616,7 +5616,7 @@ gatsby-worker@^2.2.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^5.0.0:
+gatsby@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-5.2.0.tgz#a4bec0950bcd3f854f81b0ff505b5dc5afbdb53b"
   integrity sha512-/qSejemRi2eUDtL5BiJPV4rOTBo9aJUm3394BPz+ZeDVu8WmyvfvGrSkjesTh6SXumDk/DyFwxZH28hjSdC4qQ==
