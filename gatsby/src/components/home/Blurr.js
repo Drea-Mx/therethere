@@ -165,7 +165,6 @@ const BlurContainer = styled.section`
     position: fixed;
     top: 0;
     opacity: 1;
-    transition: opacity 1s ease-in-out, top 1s ease-in-out 1s;
     z-index: 3;
     .text {
         position: absolute;
