@@ -159,9 +159,9 @@ const SingleArchitectureProject = ({ data: {architecture, header}, pageContext})
                         }
                     </div>
                 </div>
-                <button className="closeButton">
+                <span className="closeButton">
                     <img className="close" src='/Close.svg' alt='Close button' />
-                </button>
+                </span>
                 <div className="cont">
                     <div className="top">
                         <h2>{architecture.title}</h2>
