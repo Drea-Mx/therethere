@@ -68,9 +68,6 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
         <SingleCountProjContainer className='project'>
             <img className="bg" src='/counterBG.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
-                <AniLink to={`/counternarratives`} className='close' cover bg="#F408F4" direction="down">
-                    <img src='/Close.svg' alt='Close button' />
-                </AniLink>
 
                 <div className="arrow">
                     <div className='back' >
@@ -88,6 +85,9 @@ const SingleCounterProject = ({ data: { counter }, pageContext}) => {
                         }
                     </div>
                 </div>
+                <AniLink to={`/counternarratives`} className='close' cover bg="#F408F4" direction="down">
+                    <img src='/Close.svg' alt='Close button' />
+                </AniLink>
                 <div className="grid">
                         <h1>{counter.title}</h1>
                         <div className="textoooo">

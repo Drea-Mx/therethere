@@ -57,9 +57,6 @@ const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
         <SingleFictionProjContainer className='project'>
             <img className="fake" src='/bgFictions.png' alt="backgound Counter Narratives" />
             <div className='overlayx clicked'>
-                <AniLink to={`/fictions`} className='close' cover bg="#F408F4" direction="down">
-                    <img src='/xPink.png' alt='Close button' />
-                </AniLink>
                 <div className="arrow">
                     <div className='back' >
                         {prev &&
@@ -76,6 +73,9 @@ const SingleFictionProject = ({ data: { fiction }, pageContext}) => {
                         }
                     </div>
                 </div>
+                <AniLink to={`/fictions`} className='close' cover bg="#F408F4" direction="down">
+                    <img src='/xPink.png' alt='Close button' />
+                </AniLink>
                 <div className='iz'>
                     <div className="scroll">
                         <h1>{fiction.title}</h1>
