@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const useSessionModal = () => {
     const session = "test";
-    const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(true);
     const hideModal = () => {
       const modalKey = "modalSession";
       sessionStorage.setItem(modalKey, session);
@@ -156,7 +156,7 @@ const Blurr = () => {
 
 const BlurContainer = styled.section`
 .top {
-    top: -100% !important;
+    top: -120%;
     opacity: 0 !important;
 }
 .container {
