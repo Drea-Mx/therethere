@@ -124,7 +124,7 @@ const Blurr = ({ setWindowBlur}) => {
 
 const BlurContainer = styled.section`
 .top {
-    top: -120%;
+    top: -120% !important;
     opacity: 0 !important;
 }
 .container {

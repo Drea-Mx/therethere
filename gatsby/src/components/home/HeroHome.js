@@ -104,7 +104,7 @@ const HeroHome = ({data}) => {
 
 const BlurContainer = styled.section`
 .top {
-    top: -100% !important;
+    top: -120% !important;
 }
 .container {
     height: 100vh;
