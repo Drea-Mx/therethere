@@ -1,5 +1,5 @@
-# Contextual
-[contextual.mx](https://contextual.mx/)
+# therethere
+[https://therethere-architecture.com/](https://therethere-architecture.com/)
 
 
 Instructions to run the project in your local machine. The project was created using [React Gatsby](https://www.gatsbyjs.com) for the Front-End and [Sanity](https://www.sanity.io/)
