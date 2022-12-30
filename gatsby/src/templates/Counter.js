@@ -175,7 +175,7 @@ img.bg {
         width: 65%;
         height: 100%;
         display: flex;
-        z-index: 2;
+        z-index: 4;
         a {
             &:first-child {
                 img {
@@ -238,7 +238,7 @@ img.bg {
         grid-template-columns: repeat(10, 1fr);
         h1 {
             grid-column: 1/5;
-            padding: 45px 0 0 50px;
+            padding: 45px 20px 0 50px;
             @media (max-width: 850px) {
                 grid-column: 1/6;
             }
@@ -249,7 +249,7 @@ img.bg {
             margin-top: 0;
             text-align: center;
             position: relative;
-            z-index: 2;
+            z-index: 4;
             @media (max-width: 850px) {
                 grid-column: 6/11;
             }
@@ -266,17 +266,18 @@ img.bg {
             }   
         }
         .playerImage {
-            grid-column: 4/11;
-            grid-row: 2/3;
+            grid-column: 5/9;
+            grid-row: 2/4;
             align-self: baseline;
-            margin-top: 0;
+            margin-top: -100px;
             text-align: center;
             position: relative;
-            z-index: 1;
-            max-height: 80vh;
+            z-index: 3;
             height: 100%;
-            padding: 0 50px 50px 50px;
-            overflow: hidden;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
             @media (max-width: 850px) {
                 grid-column: 6/11;
             }
@@ -284,8 +285,8 @@ img.bg {
                 display: none;
             }
             .image {
-                height: 100%;
                 width: 100%;
+                
             }
         }
         .textoooo {

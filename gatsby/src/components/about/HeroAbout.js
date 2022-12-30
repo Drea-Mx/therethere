@@ -89,11 +89,11 @@ return(
                     </div>
                     <div className='rig'>
                         
-                        <a href='#top'>About</a>
-                        <a href='#top'>PRINCIPAL</a>
-                        <a href='#top'>ALLIES</a>
-                        <a href='#founding'>Awards</a>
-                        <a href='#founding'>News</a>
+                        <a href='#about'>About</a>
+                        <a href='#founding'>PRINCIPAL</a>
+                        <a href='#allies'>ALLIES</a>
+                        <a href='#awards'>Awards</a>
+                        <a href='#news'>News</a>
                     </div>
                 </div>
                 <Top data={data} />
@@ -108,9 +108,10 @@ return(
     )
 }
 
+
 const BlurContainer = styled.section`
 .top {
-    top: -100% !important;
+    top: -120% !important;
 }
 .container {
     height: 100vh;
@@ -119,7 +120,7 @@ const BlurContainer = styled.section`
     top: 0;
     opacity: 1;
     transition: opacity 1s ease-in-out, top ease-in-out 1s;
-    z-index: 3;
+    z-index: 5;
     .text {
         position: absolute;
         width: 100%;

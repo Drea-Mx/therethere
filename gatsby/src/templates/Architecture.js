@@ -559,6 +559,7 @@ const ArchitecturesContainerMovil = styled.section`
             h2 {
                 font-size: 28px;
                 margin-bottom: 10px;
+                text-transform: uppercase;
             }
 
             p {
@@ -583,7 +584,7 @@ const ArchitecturesContainerMovil = styled.section`
         }
         .closeButton {
             img {
-                width: 30px;
+                width: 20px;
                 position: fixed;
                 bottom: 30px;
                 right: 20px;

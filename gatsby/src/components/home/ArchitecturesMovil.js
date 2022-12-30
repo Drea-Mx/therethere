@@ -12,7 +12,7 @@ const ArchitecturesMovil = ({data}) => {
                         <div className='project' key={_id}>
                             <div className='slider'>
                                 <div className='bar'></div>
-                                <div className='container'>
+                                <div className='containerImage'>
                                     {sliderImages.map(({ _key, alt, asset }) => {
                                                 const bgGetDataSlide = getImage(asset)
                                                 const bgGetDataSlideAlt = alt
@@ -62,10 +62,9 @@ const ArchitecturesContainer = styled.section`
         display: block;
     }
     .container {
-        padding-bottom: 50px;
         .project {
             position: relative;
-            margin-bottom: 70px;
+            margin-bottom: 100px;
             padding-left: 20px;
             .info {
                 margin-top: 10px;
@@ -97,10 +96,11 @@ const ArchitecturesContainer = styled.section`
             }
             .slider {
                 position: relative;
-                .container {
+                .containerImage {
                     overflow-x: scroll;
                     overflow-y: hidden;
                     white-space:nowrap;
+                    margin-bottom: 30px;
                 }
                 .bar {
                     position: absolute;

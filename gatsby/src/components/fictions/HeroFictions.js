@@ -102,7 +102,7 @@ const HeroFictions = ({data}) => {
 
 const BlurContainer = styled.section`
 .top {
-    top: -100% !important;
+    top: -120% !important;
 }
 .container {
     height: 100vh;
@@ -111,7 +111,7 @@ const BlurContainer = styled.section`
     top: 0;
     opacity: 1;
     transition: opacity 1s ease-in-out, top ease-in-out 1s;
-    z-index: 3;
+    z-index: 5;
     .text {
         position: absolute;
         width: 100%;

@@ -39,6 +39,7 @@ const Architectures = ({data}) => {
 const ArchitecturesContainer = styled.section`
     margin-top: 320px;
     position: relative;
+    margin-bottom: 150px;
     @media (max-width: 850px) {
         margin-top: 50px;
     }

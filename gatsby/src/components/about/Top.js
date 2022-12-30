@@ -5,7 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 const Top = ({data}) => {
     return(
         <CountProjContainer>
-            <div className='iz item'>
+            <div className='iz item' id='about'>
                 <h1>{data.sanityAboutPage.title}</h1>
                 <div className='body'>
                     <div className='scroll'>
