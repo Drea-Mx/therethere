@@ -221,8 +221,8 @@ img.bg {
         top: 50px;
         right: 50px;
         @media (max-width: 650px) {
-            right: 50px;
-            bottom: 45px;
+            right: 10px;
+            bottom: 5px;
             top: auto;
             width: 40px;
             height: 40px;
@@ -254,7 +254,15 @@ img.bg {
                 grid-column: 6/11;
             }
             @media (max-width: 650px) {
-                display: none;
+                grid-row: 2/3;
+                grid-column: 1/11;
+                width: 100%;
+                .video {
+                    box-sizing: content-box;
+                    iframe {
+                         margin-left: 20px !important;
+                    }
+                }
             }
             .video {
                 position: relative;
@@ -282,7 +290,17 @@ img.bg {
                 grid-column: 6/11;
             }
             @media (max-width: 650px) {
-                display: none;
+                grid-row: 2/3;
+                grid-column: 1/11;
+                width: 100%;
+                margin-top: 0;
+                padding: 20px;
+                .video {
+                    box-sizing: content-box;
+                    iframe {
+                         margin-left: 20px !important;
+                    }
+                }
             }
             .image {
                 width: 100%;
@@ -296,6 +314,10 @@ img.bg {
             scrollbar-width: none;  /* Firefox */
             position: relative;
             @media (max-width: 850px) {
+                grid-column: 1/6;
+                padding-left: 0 ;
+            }
+            @media (max-width: 650px) {
                 grid-column: 1/6;
                 padding-left: 0 ;
             }
@@ -325,10 +347,13 @@ img.bg {
         }
         @media (max-width: 650px) {
             grid-column: 1/11;
-            height: 100vh;
-            display: flex;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
             flex-direction: column;
             z-index: 5;
+            padding: 0;
+            overflow: scroll;
             h1 {
                 grid-row: 1/2;
                 padding: 20px 20px 10px;
@@ -366,6 +391,16 @@ img.bg {
                 bottom: 40px;
                 margin: 0 !important;
                 padding: 0 20px ;
+                @media (max-width: 650px) {
+                    position: fixed;
+                    width: 100%;
+                    z-index: 5;
+                    background-color: #F54BF5;
+                    padding: 20px;
+                    bottom: 0;
+                    margin-top: 10px !important;
+                    box-shadow: 1px -6px 43px 10px var(--pink);
+                }
             }
         }
         /* Hide scrollbar for Chrome, Safari and Opera */
@@ -396,7 +431,7 @@ img.bg {
                 overflow-x: scroll;
                 height: calc(75vh - 155px);
                 @media (max-width: 650px) {
-                    height: calc(65vh - 155px);
+                    height: 100%;
                 }
             }
             p {
