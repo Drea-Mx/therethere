@@ -181,10 +181,10 @@ const HeroContainer = styled.nav`
                                 />
                         </div>
                         <ul className="links">
-                            <li><Link to='/' partiallyActive={true} activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
-                            <li><Link to='/counternarratives' partiallyActive={true} activeStyle={{color: "#000000" }}>COUNTER NARRATIVES</Link></li>
-                            <li><Link to='/fictions' partiallyActive={true} activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
-                            <li><Link to='/about' partiallyActive={true} activeStyle={{color: "#000000" }}>ABOUT</Link></li>
+                            <li><Link onClick={() => setMenu(!menu)} to='/' partiallyActive={true} activeStyle={{color: "#000000" }}>ARCHITECTURES</Link></li>
+                            <li><Link onClick={() => setMenu(!menu)} to='/counternarratives' partiallyActive={true} activeStyle={{color: "#000000" }}>COUNTER NARRATIVES</Link></li>
+                            <li><Link onClick={() => setMenu(!menu)} to='/fictions' partiallyActive={true} activeStyle={{color: "#000000" }}>FICTIONS</Link></li>
+                            <li><Link onClick={() => setMenu(!menu)} to='/about' partiallyActive={true} activeStyle={{color: "#000000" }}>ABOUT</Link></li>
                         </ul>
                         <div className="footer">
                             <p>{data.sanitySettingsPage.title}</p>
