@@ -1,26 +1,25 @@
 // deskStructure.js
-import S from '@sanity/desk-tool/structure-builder'
 import {orderableDocumentListDeskItem} from '@sanity/orderable-document-list'
 
-export default () =>
+export default (S, context) =>
   S.list()
     .title('Pages')
     .items([
         orderableDocumentListDeskItem(
           {
-            type: 'architecture',
+            type: 'architecture', S, context,
             title: 'Architectures',
           }
         ),
         orderableDocumentListDeskItem(
           {
-            type: 'counterNarrative',
+            type: 'counterNarrative', S, context,
             title: 'Counter Narratives',
           },
         ),
         orderableDocumentListDeskItem(
           {
-            type: 'fiction',
+            type: 'fiction', S, context,
             title: 'Fictions',
           },
         ),
