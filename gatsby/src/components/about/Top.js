@@ -47,6 +47,7 @@ const CountProjContainer = styled.section`
     margin-top: 250px;
     position: relative;
     display: flex;
+    
     @media (max-width: 850px) {
         flex-direction: column;
         margin-top: 50px !important;
@@ -86,7 +87,14 @@ const CountProjContainer = styled.section`
             p {
                 font-size: 16px;
                 line-height: 26px;
+                &:empty {
+                    height: 1em;
+                }
+                &:blank {
+                    height: 1em;
+                }
             }
+            
         }
         .bar {
             position: absolute;
